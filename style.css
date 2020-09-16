@@ -43,7 +43,7 @@ body {
 
 .container {
     width: auto; 
-    height: 45px;
+    height: auto;
     border: 1px solid;
   }
   
@@ -78,4 +78,20 @@ body {
     text-decoration: none;
     background-color:black;
     align-items: center;
+  }
+
+  .button {
+    width: auto;
+    height: auto;
+    display: inline-block;
+    text-align:center;
+    font-size: 16px;
+    color: white;
+    font-family: "Arial", Arial, Helvetica, sans-serif;
+    background-color: black;
+  }
+
+  .button:hover{
+    background-color: 	#619d36;
+    border-color: 	#619d36;
   }
