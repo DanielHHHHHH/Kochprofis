@@ -13,3 +13,21 @@ body {
     margin:0px;
     
 }
+
+.login{
+    margin: 50px;
+    text-align: center;
+}
+#benutzername{
+    margin-bottom: 30px;
+    font-size: x-large;
+}
+#kennwort{
+    margin-bottom: 50px;
+    font-size: x-large;
+}
+#button{
+    margin-bottom: 30px;
+    width: 15%;
+    font-size: large;
+}
