@@ -10,7 +10,8 @@
     </header>
     <link rel="stylesheet" tyoe="test/css" href="style.css">
 </head>
-<body>    
+<body>
+   <!-- Erste Zeile mit Feld für Anmeldung und Button für Abmeldung -->
     <div class="container">
         <div class="spalte">
             Angemeldet als:
@@ -19,10 +20,11 @@
         <input type="text" name="benutzername" id="Abenutzername">
     
         <div class="spaltebA">
-            <button class="button" type="button" id="erstellen"> Ausloggen </button>
+            <button class="button" type="button" id="ausloggen"> Ausloggen </button>
         </div>
     </div>
 
+    <!-- Zeile mit den Button für erstellen, bearbeiten und löschen -->
     <form id="form2">
         <div class="container">
             <div class="spalteFeatures">
@@ -34,11 +36,12 @@
             </div>
 
             <div class="spalteFeatures">
-                <button class="button" type="button" id="löschen"> Löschen </button>
+                <button class="button" type="button" id="löschen"> Rezept Löschen </button>
             </div>
         </div>
     </form>
 
+    <!-- Dritte Zeile für die Überschriften Liste und Rezept -->
     <div class="container">
         <div class="spalteListe">
             Liste
@@ -48,6 +51,7 @@
         </div>
     </div>
 
+    <!-- Die beiden Bereiche für die Liste der Rezepte und dass Feld wo das Rezept angezeigt wird -->
     <div class="container">
         <div class="spalteListeAn">
             Aufzählung Rezepte:
@@ -56,6 +60,8 @@
             Text des Rezeptes:
         </div>
     </div>
-    <script src = script.js/>
+
+    <!-- Einbinden des JavaScripts -->
+    <script src = "script.js">  </script>
 </body>
 </html>
