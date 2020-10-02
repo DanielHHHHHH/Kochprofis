@@ -6,7 +6,7 @@ var txtValue=txtUsername.value;
 
 button.addEventListener("click", (evt) => {
 
-    if (txtValue=="") {
+    if (txtValue.value == "") {
         alert("Bitte erst was eingeben");
     } else {
         alert("Sie haben etwas eingegeben");
