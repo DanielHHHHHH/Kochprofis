@@ -11,3 +11,24 @@ button.addEventListener("click", (evt) => {
 
     console.log(values);
 });
+
+//Button erstellen
+const button = document.querySelector('#erstellen');
+
+button.addEventListener("click, (evt)" => {
+
+});
+
+//Button bearbeiten
+const button = document.querySelector('#bearbeiten');
+
+button.addEventListener("click, (evt)" => {
+
+});
+
+//Button löschen
+const button = document.querySelector('#löschen');
+
+button.addEventListener("click, (evt)" => {
+
+});
