@@ -13,21 +13,46 @@ console.log("Hallo");
 console.log(txtPassword.value);
 
 
+
 button.addEventListener("click", (evt) => {
 
-    if (txtPassword.value == txtPasswordConfirm.value) {
-        alert("alles richtig gemacht");
-        
-
-
+    if (txtUsername.value == "") {
+        alert("Bitte erst Benutzername eingeben");
     } else {
-        alert("nicht übereinstimmend");
-        
-
+        alert("Sie haben einen Benutzername eingegeben");
     }
 
+    evt.preventDefault();
+});
+
+button.addEventListener("click", (evt) => {
+
+    if (txtPassword.value == "") {
+        alert("Bitte erst Passwort eingeben");
+    } else {
+        alert("Sie haben ein Passwort eingegeben");
+    }
 
     evt.preventDefault();
-
-
 });
+
+button.addEventListener("click", (evt) => {
+
+    if (txtPasswordConfirm.value == "") {
+        alert("Bitte erst Passwort bestätigen");
+    } else {
+        alert("Sie haben ein Passwort bestätigt");
+    }
+
+    evt.preventDefault();
+});
+
+button.addEventListener("click", (evt) => {
+    if (txtPassword.value == txtPasswordConfirm.value) {
+        alert("alles richtig gemacht");
+    } else {
+        alert("nicht übereinstimmend");
+    }
+    evt.preventDefault();
+});
+
