@@ -1,22 +1,29 @@
 
-//Benutzer wird ausgeloggt
-const button = document.querySelector("#anmelden");
-const txtUsername=document.querySelector("#benutzername");
-var txtValue=txtUsername.value;
+const button = document.getElementById("anmelden");
+
+const txtUsername = document.getElementById("benutzername");
+const txtPassword = document.getElementById("kennwort");
+
 
 button.addEventListener("click", (evt) => {
 
-    if (txtValue.value == "") {
-        alert("Bitte erst was eingeben");
+    if (txtUsername.value == "") {
+        console.log("Bitte erst Benutzername eingeben");
     } else {
-        alert("Sie haben etwas eingegeben");
+        console.log("Sie haben einen Benutzername eingegeben");
     }
-    
 
     evt.preventDefault();
-
-
-    const values = Object.fromEntries(new FormData(evt.target));
-
-    console.log(values);
 });
+
+button.addEventListener("click", (evt) => {
+
+    if (txtPassword.value == null) {
+        console.log("Bitte erst Passwort eingeben");
+    } else {
+        console.log("Sie haben ein Passwort eingegeben");
+    }
+
+    evt.preventDefault();
+});
+
