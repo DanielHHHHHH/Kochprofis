@@ -8,6 +8,8 @@ header{
 
 body {
     margin:0px;
+    background-color: white;
+    
 }
 
 #menü a{   
@@ -149,7 +151,6 @@ body {
 
   .spalteListeAn  {
     width: 256px;
-    height: 200px;
     border:  1px solid black;
     margin:  5px;
     padding: 5px;
@@ -164,7 +165,6 @@ body {
 
   .spalteRezeptAn  {
     width: 75%;
-    height: 200px;
     border:  1px solid black;
     margin:  5px;
     padding: 5px;
@@ -175,4 +175,61 @@ body {
     font-family: "Arial", Arial, Helvetica, sans-serif;
     text-decoration: none;
     align-items: center;
+  }
+
+  .liste  {
+    width: 268px;
+    height: 200px;
+    background-color: #d3d3d3;
+    border:  1px solid black;
+    margin:  5px;
+    padding: 5px;
+    display: inline-block;
+    text-align:center;
+    color: white;
+    font-size: 18px ;
+    font-family: "Arial", Arial, Helvetica, sans-serif;
+    text-decoration: none;
+    align-items: center;
+    box-sizing: border-box;
+  }
+
+  .rezeptText  {
+    width: 900px;
+    height: 200px;
+    background-color: #d3d3d3;
+    border:  1px solid black;
+    margin:  5px;
+    padding: 5px;
+    display: inline-block;
+    text-align:center;
+    color: white;
+    font-size: 18px ;
+    font-family: "Arial", Arial, Helvetica, sans-serif;
+    text-decoration: none;
+    align-items: center;
+    box-sizing: border-box;
+    margin-right: 0;
+  }
+
+  .rezeptText {
+    width: 800px;
+    height: auto;
+  }
+
+  .listeRezept {
+    width: 1250px;
+    height: 200;
+    border:  3px solid black;
+    margin:  5px;
+    padding: 5px;
+    display: inline-block;
+    text-align:center;
+    color: white;
+    border:solid 3px black;
+    font-size: 18px ;
+    font-family: "Arial", Arial, Helvetica, sans-serif;
+    text-decoration: none;
+    background-color:black;
+    align-items: right;
   }

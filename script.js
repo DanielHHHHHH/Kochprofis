@@ -1,4 +1,4 @@
-//Benutzer wird ausgeloggt
+//Button ausloggen
 const button = document.querySelector("#ausloggen");
 
 button.addEventListener("click", (evt) => {
@@ -12,23 +12,31 @@ button.addEventListener("click", (evt) => {
     console.log(values);
 });
 
+
+const txtrezeptText = document.getElementById("rezeptText");
+
 //Button erstellen
 const button = document.querySelector('#erstellen');
 
-button.addEventListener("click, (evt)" => {
+button.addEventListener("click", (evt) => {
+    if (txtrezeptText.value == "") {
+        alert("Bitte erst einen Text eingeben");
+    } else {
+        alert("Ihr Rezept wurde übernommen");
+    }
 
 });
 
 //Button bearbeiten
 const button = document.querySelector('#bearbeiten');
 
-button.addEventListener("click, (evt)" => {
+button.addEventListener("click", (evt) => {
 
 });
 
 //Button löschen
 const button = document.querySelector('#löschen');
 
-button.addEventListener("click, (evt)" => {
+button.addEventListener("click", (evt) => {
 
 });
