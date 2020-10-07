@@ -1,0 +1,23 @@
+{
+  "name": "kochprofis",
+  "version": "1.0.0",
+  "description": "test\r test2\r hallo\r hallo \r test",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DanielHHHHHH/Kochprofis.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DanielHHHHHH/Kochprofis/issues"
+  },
+  "homepage": "https://github.com/DanielHHHHHH/Kochprofis#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mysql": "^2.18.1"
+  }
+}
