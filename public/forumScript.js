@@ -50,3 +50,42 @@ const button = document.querySelector('#löschen');
 button.addEventListener("click", (evt) => {
 
 });
+
+//----------------------------------------------------------------------------------------------------
+
+//Code von Herrn Kronmüller um zu testen
+const fetchButton = document.querySelector("#fetchTodos");
+const list = document.querySelector("#todoList");
+const createForm = document.querySelector("#create-todo");
+
+createForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  const values = Object.fromEntries(new FormData(e.target));
+
+  fetch("/rezepte", {
+    method: "POST",
+    body: JSON.stringify(values),
+    headers: {
+      "content-type": "application/json",
+    },
+  }).then((res) => {
+    console.log(res.ok);
+  });
+
+  console.log("FORM SUBMITTED", values);
+});
+
+fetchButton.addEventListener("click", () => {
+  fetch("/rezepte")
+    .then((res) => {
+      // console.log(res.ok, res.status, res);
+
+      if (!res.ok) return Promise.reject(res.status);
+
+      return res.json();
+    })
+    .catch((e) => {
+      alert(`WHOOPS: ${e}`);
+    });
+});
