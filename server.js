@@ -15,5 +15,5 @@ app.use(express.static("public"));
 app.listen(2222);
 
 app.get("/", (req, res)=>{
-    res.send("Hello world");
+   res.send("Hello world");
 });
