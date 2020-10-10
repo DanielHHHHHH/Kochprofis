@@ -27,7 +27,7 @@ SET time_zone = "+00:00";
 -- Tabellenstruktur für Tabelle `login`
 --
 
-CREATE TABLE `login` (
+CREATE TABLE `benutzer` (
   `id` int(3) NOT NULL,
   `benutzername` varchar(30) NOT NULL,
   `passwort` varchar(30) NOT NULL
@@ -53,7 +53,7 @@ CREATE TABLE `rezepte` (
 --
 -- Indizes für die Tabelle `login`
 --
-ALTER TABLE `login`
+ALTER TABLE `benutzer`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -69,7 +69,7 @@ ALTER TABLE `rezepte`
 --
 -- AUTO_INCREMENT für Tabelle `login`
 --
-ALTER TABLE `login`
+ALTER TABLE `benutzer`
   MODIFY `id` int(3) NOT NULL AUTO_INCREMENT;
 
 --
