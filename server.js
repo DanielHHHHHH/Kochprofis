@@ -12,22 +12,22 @@ const connection = mysql.createConnection({
     database: 'kochprofis'
   });
 
-db.connect((error) =>{
-  if(error){
-  console.log(error)
-  }else{
-    console.log("MySQL connected")
-  }
-}
-)
+  connection.connect((error) =>{
+    if(error){
+    console.log(error)
+    }else{
+      console.log("MySQL connected...")
+    }
+  });
+
   
 app.use(express.static("public"));
 
 
 
 app.listen(2222, () => {
-  console.log("Server started on Port 2222");
-})
+  console.log("Server started on Port 2222")
+});
 
 app.get("/", (req, res)=>{
    //res.send("Hello world");
