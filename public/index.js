@@ -3,15 +3,15 @@
 const loginForm = document.querySelector(".verify");
 const button = document.querySelector("#btnLogin");
 
-loginForm.addEventListener("submit", (evt) => {
+button.addEventListener("click", (evt) => {
     evt.preventDefault();
 
-    const values = Object.fromEntries(new FormData(evt.target));
+    const values = Object.fromEntries(new FormData(loginForm));
     console.log(values)
 
 
     
-    fetch("/todos", {
+    fetch("/", {
         method: "POST",
         body: JSON.stringify(values),
         headers: {
