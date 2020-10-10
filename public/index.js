@@ -1,40 +1,28 @@
 // JavaScript für start.html
 
-const button = document.getElementById("anmelden");
-const txtUsername = document.getElementById("benutzername");
-const txtPassword = document.getElementById("kennwort");
+const loginForm = document.querySelector(".verify");
+const button = document.querySelector("#btnLogin");
 
-
-button.addEventListener("click", (evt) => {
-
-    // Abfrage ob Textfeld "Username" leer ist
-    if (txtUsername.value == "") {
-        alert("Bitte erst Benutzername eingeben");
-    } else {
-        alert("Sie haben einen Benutzername eingegeben");
-    }
-
-    // Abfrage ob Textfeld "Password" leer ist
-    if (txtPassword.value == "") {
-        alert("Bitte erst Passwort eingeben");
-    } else {
-        alert("Sie haben ein Passwort eingegeben");
-    }
-
-
+loginForm.addEventListener("submit", (evt) => {
     evt.preventDefault();
+
+    const values = Object.fromEntries(new FormData(evt.target));
+    console.log(values)
+
+
+    
+    fetch("/todos", {
+        method: "POST",
+        body: JSON.stringify(values),
+        headers: {
+            "content-type": "application/json",
+        },
+    }).then((res) => {
+        console.log(res.ok);
+    });
+
+    console.log("FORM SUBMITTED", values);
 });
 
-/*
-button.addEventListener("click", (evt) => {
 
-    if (txtPassword.value == "") {
-        alert("Bitte erst Passwort eingeben");
-    } else {
-        alert("Sie haben ein Passwort eingegeben");
-    }
-
-    evt.preventDefault();
-});
-*/
 

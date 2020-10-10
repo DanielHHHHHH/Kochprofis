@@ -13,23 +13,15 @@
 </head>
 <body>
 
-    <div class="login">
-                 
-        <input type="text" name="benutzername" id="benutzername" placeholder="Benutzername" focus>
-         <br>            
-        <input type="password" name="kennwort" id="kennwort" class="kennwort" placeholder="Kennwort">               
-         <br>            
-            <div id="menü">
-                <a id="anmelden" href="Forum-Seite.html">Anmelden</a>
-                <br>
-                <a id="registrieren" href="register.html">Registrieren</a>
-                        
-        </div>  
-    </div>
+    <form class="verify">
 
-                
-    
-    <!-- Einbinden des JavaScripts -->
-    <script src = "startScript.js">  </script>
+        <input type="text" name="username" class="verifyInput" placeholder="Benutzername" focus>
+        <input type="password" name="password" class="verifyInput" placeholder="Passwort">
+        <button type="submit" id="btnLogin" class="verifyButton">Anmelden</button>
+        <a href="register.html"><button id="btnRegister" class="verifyButton" >Registrieren</button></a>
+    </form>
+
+    <script src="index.js">  </script>
+
 </body>
 </html>

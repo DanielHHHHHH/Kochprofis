@@ -11,21 +11,16 @@
     <link rel="stylesheet" tyoe="test/css" href="style.css">
 </head>
 <body>
-     <div class="login">
-                 
-         <input type="text" name="benutzername" id="benutzername" placeholder="Neuer Benutzername" focus>
-         <br>            
-         <input type="password" name="kennwort" class="kennwort" id="kennwort" placeholder="Neues Kennwort">
-         <br>            
-         <input type="password" name="kennwort" class="kennwort" id="kennwortConfirm" placeholder="Kennwort wiederholen">
-        <br>
-            <div id="menü">
-                        
-                <a href="#" id="register">Registrieren</a>
-            </div>
-     </div>
+   
+    <form class="verify">
 
-                
-     <script src = "registerScript.js">  </script>
+        <input type="text" name="username" class="verifyInput" placeholder="Benutzername" focus>
+        <input type="password" name="password" class="verifyInput" placeholder="Passwort">
+        <input type="password" name="passwordVerify" class="verifyInput" placeholder="Passwort wiederholen">
+        <button type="submit" name="btnRegister" class="verifyButton">Registrieren</button>
+
+    </form>
+
+    <script src="registerScript.js">  </script>
     </body>
 </html>
