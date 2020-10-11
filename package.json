@@ -26,9 +26,6 @@
     "mysql2-promise": "^0.1.4",
 <<<<<<< HEAD
     "nodemon": "^2.0.4",
-=======
-    "popups": "^1.1.3",
->>>>>>> 219946c1ddc995b8a3fcb9a34cea9e397aaf10b8
     "promise-mysql": "^4.1.3"
   }
 }
