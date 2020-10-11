@@ -4,6 +4,7 @@ const express = require("express");
 const mysql = require("mysql");
 const session = require("express-session");
 const bodyParser = require('body-parser');
+const alert = require('alert');
 const app = express();
 
 var urlencodedParser = bodyParser.urlencoded({ extended: false })
@@ -36,18 +37,27 @@ app.listen(2222, () => {
 });
 
 app.post('/register',urlencodedParser ,(req, res)=> {
+  if(req.body.password==req.body.passwordVerify && req.body.username !='' && req.body.password !='' && req.body.passwordVerify!=''){
+
   let post={
-    
     benutzername: req.body.username,
     passwort: req.body.password,
-    
   }
+
   console.log(req.body);
-  connection.query('INSERT INTO login SET ?', post, (err,res)=>{
+  
+  connection.query('INSERT INTO benutzer SET ?', post, (err,res)=>{
     if(err) throw err;
     console.log('success');
   console.log(res);
   });
+
+  res.sendFile(__dirname +'/public/Forum-Seite.html');
+}
+
+else{
+  alert("Bitte alle Felder richtig ausfüllen");
+}
 
 });
 
