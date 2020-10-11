@@ -28,7 +28,7 @@ mysqlConnection.connection((err)=>{
     }
 });
 
-app.listen(3000);
+app.listen(2222);
 
 app.use(express.static("public"));
 app.use(express.json());

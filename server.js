@@ -61,7 +61,6 @@ else{
 
 });
 
-
 /*app.post("/benutzer", async (req, res) => {
   const [
     rows,
@@ -77,3 +76,44 @@ else{
   });
 });
 */
+
+//-------------------------------------------------------------------------------------------------------
+//Alles für die Forum-Seite, da sich bei mir das "forumserver.js" nicht mit der DB verbunden hat
+//Anleitung von diesem Inder: https://www.youtube.com/watch?v=4fWWn2Pe2Mk
+
+//Alle Rezepte bekommen
+app.get('/rezepte', async (req,res) => {
+  const [rows] = await connection.execute('SELECT rezept FROM rezepte',(err, rows, fields)=>{
+    if(!err)
+      res.send(rows);
+    else
+      console.log(err);
+  })
+});
+
+//Ein Rezept hinzufügen
+app.post('/rezepte', async (req,res) => {
+    const [rows] = await connection.execute('INSERT INTO rezepte (rezept, autor, rezeptname) VALUES (?,?,?)'
+    [req.body.rezept, req.body.autor, req.body.rezeptname]
+  );
+
+  res.json({
+    id: rows.insertId,
+    rezept: req.body.rezept,
+    autor: req.body.autor,
+    rezeptname: req.body.rezeptname,
+  });
+});
+
+//Ein Rezept Löschen
+app.delete('/rezepte/:id', async (req,res)=>{
+  console.log(req.params.id);
+
+  const [rows] = await connection.execute('DELETE FROM rezepte WHERE id = ?',[req.params.id],);
+
+  if(rows.affectedRows == 1) {
+    res.status(200).send();
+  } else {
+    res.status(404).send();
+  }
+});
