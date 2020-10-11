@@ -36,6 +36,25 @@ app.listen(2222, () => {
   console.log("Server started on Port 2222")
 });
 
+
+app.post('/login',urlencodedParser ,(req, res)=> {
+  let benutzername=req.body.username;
+  let passwort=req.body.password;
+
+  if(benutzername && passwort){
+    connection.query('SELECT * FROM benutzer WHERE benutzername = ? AND passwort = ?', [benutzername, passwort], function(error, results, fields) {
+			if (results.length != 0) {
+				res.sendFile(__dirname +'/public/Forum-Seite.html');
+			} else {
+				alert("Falser Benutzername und/oder Passwort");
+			}
+		});
+	} else {
+    alert("Bitte geben Sie einen Benutzernamen und/oder Passwort an");
+	}
+});
+
+
 app.post('/register',urlencodedParser ,(req, res)=> {
   if(req.body.password==req.body.passwordVerify && req.body.username !='' && req.body.password !='' && req.body.passwordVerify!=''){
 
@@ -61,19 +80,3 @@ else{
 
 });
 
-
-/*app.post("/benutzer", async (req, res) => {
-  const [
-    rows,
-  ] = await connection.execute(
-    "INSERT INTO benutzer (benutzername, passwort) VALUES (?, ?)",
-    [req.body.benutzername, req.body.kennwort]
-  );
-
-  res.json({
-    id: rows.insertId,
-    benutzername: req.body.benutzername,
-    kennwort: req.body.kennwort,
-  });
-});
-*/
