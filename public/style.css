@@ -121,7 +121,7 @@ border-color: 	#619d36;
 }
 
 .spalteFeatures  {
-  width:  31%;
+  width:  30%;
   height: auto;
   border:  3px solid black;
   margin:  5px;
@@ -232,24 +232,42 @@ border-color: 	#619d36;
   margin-right: 0;
 }
 
-.rezeptText {
-  width: 800px;
-  height: auto;
-}
-
-.listeRezept {
-  width: 1250px;
-  height: 200;
-  border:  3px solid black;
+.erstellen {
+  width: 98%;
+  border:  1px solid black;
   margin:  5px;
   padding: 5px;
   display: inline-block;
-  text-align:center;
+  text-align: center;
+  background-color: black;
   color: white;
-  border:solid 3px black;
   font-size: 18px ;
   font-family: "Arial", Arial, Helvetica, sans-serif;
   text-decoration: none;
-  background-color:black;
-  align-items: right;
+  align-items: center;
+}
+
+textarea {
+  caret-color: grey;  
+	width: 60em;
+	height: 15em;
+	border: 1px solid black;
+	padding: 0.5em;
+  font-family: Tahoma, sans-serif;
+  margin-left: 17%;
+  margin-right: 10%;
+}
+
+#table {
+  width: 100%; 
+  height: auto;
+  border: 1px solid;
+  background-color: #d3d3d3;
+}
+
+th {
+  color: white;
+  background-color: black;
+  font-size: 18px;
+  font-family: "Arial", Arial, Helvetica, sans-serif;
 }

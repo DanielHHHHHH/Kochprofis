@@ -1,3 +1,6 @@
+//Wird eventuell nicht mehr gebraucht, weil die Verbindung nur mit einer server.js funktioniert
+//Bin mir aber nicht sicher
+
 require("dotenv").config();
 
 const express = require("express");

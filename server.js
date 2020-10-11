@@ -79,7 +79,7 @@ else{
 
 //-------------------------------------------------------------------------------------------------------
 //Alles für die Forum-Seite, da sich bei mir das "forumserver.js" nicht mit der DB verbunden hat
-//Anleitung von diesem Inder: https://www.youtube.com/watch?v=4fWWn2Pe2Mk
+//Anleitung von Github
 
 //Alle Rezepte bekommen
 app.get('/rezepte', async (req,res) => {
