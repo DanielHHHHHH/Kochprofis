@@ -3,8 +3,10 @@ require("dotenv").config();
 const express = require("express");
 const mysql = require("mysql");
 const session = require("express-session");
+const bodyParser = require('body-parser');
 const app = express();
 
+var urlencodedParser = bodyParser.urlencoded({ extended: false })
 
 const connection = mysql.createConnection({
     host: 'localhost',
@@ -33,11 +35,24 @@ app.listen(2222, () => {
   console.log("Server started on Port 2222")
 });
 
-app.get("/", (req, res)=>{
-   //res.send("Hello world");
+app.post('/register',urlencodedParser ,(req, res)=> {
+  let post={
+    
+    benutzername: req.body.username,
+    passwort: req.body.password,
+    
+  }
+  console.log(req.body);
+  connection.query('INSERT INTO login SET ?', post, (err,res)=>{
+    if(err) throw err;
+    console.log('success');
+  console.log(res);
+  });
+
 });
 
-app.post("/benutzer", async (req, res) => {
+
+/*app.post("/benutzer", async (req, res) => {
   const [
     rows,
   ] = await connection.execute(
@@ -51,4 +66,4 @@ app.post("/benutzer", async (req, res) => {
     kennwort: req.body.kennwort,
   });
 });
-
+*/
