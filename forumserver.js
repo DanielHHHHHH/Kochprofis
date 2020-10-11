@@ -12,10 +12,9 @@ app.use(bodyparser.json());
 let connection;
 
 var mysqlConnection = mysql.createConnection({
-    host: "localhost",
-    user: "root",
-    password: "",
-    database: "kochprofis"
+    host: 'localhost',
+    user: 'root',
+    database: 'kochprofis'
 });
 
 mysqlConnection.connection((err)=>{
