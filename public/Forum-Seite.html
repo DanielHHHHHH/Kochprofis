@@ -27,9 +27,8 @@
     <div class="container">
         <form id="rezeptverwalten">
             <div class="spalteFeatures">
-                <button class="button" type="button" id="erstellen"> Rezept erstellen </button>
-            </div>
-                 
+                <input type="text" name="auswahl" id="auswahl" placeholder="Rezept Id Auswählen">
+            </div>                 
              <div class="spalteFeatures">
                  <button class="button" type="button" id="bearbeiten"> Rezept bearbeiten </button>
              </div>
@@ -39,24 +38,27 @@
              </div>
         </form>
     </div>
-    
-    <!-- Dritte Zeile für die Überschriften Liste und Rezept -->
-    <div class="container">
-        <div class="spalteListe">
-            Liste
-        </div>
-        <div class="spalteRezept">
-            Rezept
-        </div>
+
+    <table id="table">
+        <thread>
+            <th> ID </th>
+            <th> Titel </th>
+            <th> Rezepttext </th>
+            <th> Autor </th>
+        </thread>
+        <tbody> </tbody>
+    </table>
+    Kommentar: Daten werden in die Tabelle durch DB eingeladen (Hoffentlich)
+
+    <div class="container"> 
+        <form id="erstellen">
+            <div class="erstellen">
+                <button class="button" type="submit" id="erstellen"> Rezept erstellen </button>
+            </div>
+        </form>
     </div>
 
-    <div class="liste">
-        Rezept
-    </div>
-    <div class="rezeptText">
-        <textarea name="rezeptText" id="rezeptText" cols="100" rows="10">
-        </textarea>
-    </div>
+    <textarea name="text" cols="150" rows="20" placeholder="Bitte ihren Rezepttext eingeben"> </textarea>
     
 
     <!-- Einbinden des JavaScripts -->

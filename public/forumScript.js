@@ -56,7 +56,7 @@ button.addEventListener("click", (evt) => {
 //Code von Herrn Kronmüller um zu testen
 const fetchButton = document.querySelector("#fetchTodos");
 const list = document.querySelector("#todoList");
-const createForm = document.querySelector("#create-todo");
+const createForm = document.querySelector("#rezeptvewalten");
 
 createForm.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -85,7 +85,32 @@ fetchButton.addEventListener("click", () => {
 
       return res.json();
     })
-    .catch((e) => {
-      alert(`WHOOPS: ${e}`);
+  .then((rezepte) => {
+    // console.log(rezepte);
+
+    rezepte.forEach((rezepte) => {
+      const listItem = document.createElement("li");
+      listItem.textContent = rezepte.title;
+
+      const deleteButton = document.createElement("button");
+      deleteButton.textContent = "DELETE rezepte";
+
+      deleteButton.addEventListener("click", () => {
+        fetch(`/rezepte/${rezepte.id}`, {
+          method: "DELETE",
+        }).then((res) => {
+          if (res.ok) {
+            listItem.remove();
+          }
+        });
+      });
+
+      listItem.append(deleteButton);
+
+      list.appendChild(listItem);
     });
+  })
+  .catch((e) => {
+    alert(`WHOOPS: ${e}`);
+  });
 });
