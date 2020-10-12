@@ -25,6 +25,7 @@ connection.connect((error) => {
 });
 
 app.use(express.static("public"));
+app.use(express.json());
 
 app.listen(2222, () => {
   console.log("Server started on Port 2222")
@@ -38,13 +39,13 @@ app.post('/login', urlencodedParser, (req, res) => {
   if (benutzername && passwort) {
     connection.query('SELECT * FROM benutzer WHERE benutzername = ? AND passwort = ?', [benutzername, passwort], function (error, results, fields) {
       if (results.length != 0) {
-        res.sendFile(__dirname + '/public/Forum-Seite.html');
+        res.status(200).send()
       } else {
-        alert("Falser Benutzername und/oder Passwort");
+        res.status(401).send()
       }
     });
   } else {
-    alert("Bitte geben Sie einen Benutzernamen und/oder Passwort an");
+    res.status(401).send()
   }
 });
 
