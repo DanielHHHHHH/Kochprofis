@@ -42,14 +42,6 @@ align-items: center;
 flex-direction: column;
 }
 
-.verify2{
-display: flex;
-
-align-items: center;
-flex-direction: column;
-}
-
-
 #menü a{   
   width: 13%;
   display: inline-block;

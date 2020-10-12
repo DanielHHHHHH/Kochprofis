@@ -2,15 +2,12 @@
 
 
 const loginForm = document.querySelector(".verify");
-const button = document.querySelector("#btnLogin");
+const button = document.querySelector("#btnRegister");
 
 loginForm.addEventListener("submit", (evt) => {
     evt.preventDefault();
 
     const values = Object.fromEntries(new FormData(loginForm));
-    console.log(values)
-
-
 
     fetch("/login", {
         method: "POST",
@@ -28,6 +25,10 @@ loginForm.addEventListener("submit", (evt) => {
 
     console.log("FORM SUBMITTED", values);
 });
+
+button.addEventListener("click", (e) => {
+    location.href = 'register.html';
+})
 
 
 

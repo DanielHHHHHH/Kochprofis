@@ -4,7 +4,7 @@ const express = require("express");
 const mysql = require("mysql");
 const session = require("express-session");
 const bodyParser = require('body-parser');
-const alert = require('alert');
+//const alert = require('alert');
 const app = express();
 
 var urlencodedParser = bodyParser.urlencoded({ extended: false })
@@ -51,6 +51,7 @@ app.post('/login', urlencodedParser, (req, res) => {
 
 
 app.post('/register', urlencodedParser, (req, res) => {
+  console.log(req.body);
   if (req.body.password == req.body.passwordVerify && req.body.username != '' && req.body.password != '' && req.body.passwordVerify != '') {
 
     let post = {
@@ -65,12 +66,10 @@ app.post('/register', urlencodedParser, (req, res) => {
       console.log('success');
       console.log(res);
     });
-
-    res.sendFile(__dirname + '/public/Forum-Seite.html');
   }
 
   else {
-    alert("Bitte alle Felder richtig ausfüllen");
+    res.status(401).send();
   }
 
 });
