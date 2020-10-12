@@ -1,4 +1,5 @@
 // JavaScript für start.html
+
 /*
 const loginForm = document.querySelector(".verify");
 const button = document.querySelector("#btnLogin");
@@ -10,7 +11,7 @@ button.addEventListener("click", (evt) => {
     console.log(values)
 
 
-    
+
     fetch("/", {
         method: "POST",
         body: JSON.stringify(values),
