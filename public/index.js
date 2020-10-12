@@ -29,6 +29,3 @@ loginForm.addEventListener("submit", (evt) => {
 button.addEventListener("click", (e) => {
     location.href = 'register.html';
 })
-
-
-

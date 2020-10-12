@@ -1,5 +1,23 @@
 //JavaScript für Forum-Seite.html
 
+//Const-Selectoren
+const rezepte = document.querySelector("#rezeptverwalten");
+
+rezepte.addEventListener("click", (evt) => {
+    evt.preventDefault();
+
+    const values = Object.fromEntries(new FormData(rezepte));
+
+    fetch("/rezepte", {
+      method: "POST",
+      body: JSON.stringify(values),
+      headers: {
+        "content-type": "application/json",
+      },
+    })
+    console.log("FORM SUBMITTED", values);
+});
+
 //Button ausloggen
 const button = document.getElementById("ausloggen");
 

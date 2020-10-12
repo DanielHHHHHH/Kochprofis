@@ -91,16 +91,28 @@ app.get('/rezepte', async (req, res) => {
 
 //Ein Rezept hinzufügen
 app.post('/rezepte', async (req, res) => {
-  const [rows] = await connection.execute('INSERT INTO rezepte (rezept, autor, rezeptname) VALUES (?,?,?)'
-  [req.body.rezept, req.body.autor, req.body.rezeptname]
-  );
-
-  res.json({
-    id: rows.insertId,
-    rezept: req.body.rezept,
-    autor: req.body.autor,
-    rezeptname: req.body.rezeptname,
-  });
+  console.log(req.body);
+  if(req.body.text != '')
+  {
+    let post = 
+    {
+      id: rows.insertId,
+      rezept: req.body.rezept,
+      autor: req.body.autor,
+      rezeptname: req.body.rezeptname,
+    }
+    console.log(req.body);
+    connection.query('INSERT INTO rezepte (rezept, autor, rezeptname) VALUES (?,?,?)', post, (err, res) =>
+    {
+      if (err) throw err;
+      console.log("Daten übergeben");
+      console.log(res);
+    });
+  }
+  else 
+  {
+    res.status(401).send();
+  }  
 });
 
 //Ein Rezept Löschen
