@@ -8,6 +8,8 @@ registerForm.addEventListener("submit", (evt) => {
 
     const values = Object.fromEntries(new FormData(registerForm));
 
+    
+
     fetch("/register", {
         method: "POST",
         body: JSON.stringify(values),
@@ -17,7 +19,7 @@ registerForm.addEventListener("submit", (evt) => {
     }).then((res) => {
         console.log(res.ok);
         if (res.ok) {
-            location.href = '/Forum-Seite.html';
+            location.href = '/Forum-Seite.html';  //Weiterleitung zur Startseite
         } else {
             alert("Registrierung fehlgeschlagen");
         }
