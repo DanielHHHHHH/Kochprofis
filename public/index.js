@@ -1,6 +1,5 @@
 // JavaScript für index.html
 
-
 const loginForm = document.querySelector(".verify");
 const button = document.querySelector("#btnRegister");
 
