@@ -79,42 +79,47 @@ app.post('/register', urlencodedParser, (req, res) => {
 //Alles für die Forum-Seite, da sich bei mir das "forumserver.js" nicht mit der DB verbunden hat
 //Anleitung von Github
 
-//Alle Rezepte bekommen
-app.get('/rezepte', async (req, res) => {
-  const [rows] = await connection.execute('SELECT rezept FROM rezepte', (err, rows, fields) => {
-    if (!err)
-      res.send(rows);
-    else
-      console.log(err);
-  })
-});
-
 //Ein Rezept hinzufügen
-app.post('/rezepte', async (req, res) => {
+app.post('/', async (req, res) => {
   console.log(req.body);
-  if(req.body.text != '')
+  
+  if(req.body.text =! '')
   {
+    res.status(200).send();
     let post = 
     {
-      id: rows.insertId,
-      rezept: req.body.rezept,
+      rezept: req.body.text,
       autor: req.body.autor,
-      rezeptname: req.body.rezeptname,
+      titel: req.body.titel,
     }
+
     console.log(req.body);
-    connection.query('INSERT INTO rezepte (rezept, autor, rezeptname) VALUES (?,?,?)', post, (err, res) =>
+
+    connection.query('INSERT INTO rezepte (rezept, autor, rezeptname?', post, (err, res) =>
     {
       if (err) throw err;
       console.log("Daten übergeben");
       console.log(res);
     });
   }
-  else 
+
+  else
   {
     res.status(401).send();
-  }  
+  }
 });
 
+
+
+
+
+
+
+
+
+
+
+/*
 //Ein Rezept Löschen
 app.delete('/rezepte/:id', async (req, res) => {
   console.log(req.params.id);
@@ -127,3 +132,14 @@ app.delete('/rezepte/:id', async (req, res) => {
     res.status(404).send();
   }
 });
+
+
+//Alle Rezepte bekommen
+app.get('/rezepte', async (req, res) => {
+  const [rows] = await connection.execute('SELECT rezept FROM rezepte', (err, rows, fields) => {
+    if (!err)
+      res.send(rows);
+    else
+      console.log(err);
+  })
+});*/

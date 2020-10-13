@@ -1,6 +1,4 @@
 // JavaScript für start.html
-
-
 const loginForm = document.querySelector(".verify");
 const button = document.querySelector("#btnRegister");
 

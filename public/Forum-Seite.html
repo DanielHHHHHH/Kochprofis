@@ -51,14 +51,16 @@
     Kommentar: Daten werden in die Tabelle durch DB eingeladen (Hoffentlich)
 
     <div class="container"> 
-        <form id="erstellen">
-            <div class="erstellen">
-                <button class="button" type="submit" id="erstellen"> Rezept erstellen </button>
-            </div>
+        <form id="abschicken" action="/" method="POST">
+
+            <button class="button" type="submit" id="btnerstellen"> Rezept erstellen </button>
+
+            <input type="text" name="titel" placeholder="Bitte einen Rezepttitel eingeben"> </input>
+            <textarea name="text" cols="150" rows="20" placeholder="Bitte ihren Rezepttext eingeben"> </textarea>
+            <input type="text" name="autor" placeholder="Bitte ihren Benutzernamen eingeben"> </input>
+        
         </form>
     </div>
-
-    <textarea name="text" cols="150" rows="20" placeholder="Bitte ihren Rezepttext eingeben"> </textarea>
     
 
     <!-- Einbinden des JavaScripts -->

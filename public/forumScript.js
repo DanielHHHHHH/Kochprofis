@@ -1,23 +1,40 @@
 //JavaScript für Forum-Seite.html
 
 //Const-Selectoren
-const rezepte = document.querySelector("#rezeptverwalten");
+const erstellen = document.querySelector("#abschicken");
+const button = document.querySelector("#btnerstellen");
 
-rezepte.addEventListener("click", (evt) => {
+//Formular
+erstellen.addEventListener("submit", (evt) => {
     evt.preventDefault();
 
-    const values = Object.fromEntries(new FormData(rezepte));
+    const values = Object.fromEntries(new FormData(erstellen));
 
-    fetch("/rezepte", {
+    fetch("/", {
       method: "POST",
       body: JSON.stringify(values),
       headers: {
         "content-type": "application/json",
       },
-    })
+    }).then((res) => {
+      console.log(res.ok);
+    });
+
     console.log("FORM SUBMITTED", values);
 });
 
+//Button erstellen
+button.addEventListener("click", (e) => {
+  location.href = 'register.html';
+});
+
+
+
+
+
+
+
+/*
 //Button ausloggen
 const button = document.getElementById("ausloggen");
 
@@ -32,6 +49,7 @@ button.addEventListener("click", (evt) => {
     console.log(values);
 });
 
+/*
 //Button erstellen
 const button = document.getElementById("erstellen");
 const txtrezeptText = document.getElementById("rezeptText");
@@ -69,8 +87,8 @@ button.addEventListener("click", (evt) => {
 
 });
 
+/*
 //----------------------------------------------------------------------------------------------------
-
 //Code von Herrn Kronmüller um zu testen
 const fetchButton = document.querySelector("#fetchTodos");
 const list = document.querySelector("#todoList");
@@ -131,4 +149,4 @@ fetchButton.addEventListener("click", () => {
   .catch((e) => {
     alert(`WHOOPS: ${e}`);
   });
-});
+});*/

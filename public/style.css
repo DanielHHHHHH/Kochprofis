@@ -23,6 +23,7 @@ font-family: "Arial", Arial, Helvetica, sans-serif;
 text-decoration: none;
 background-color:black;
 }
+
 .verifyButton:hover{
 cursor: pointer;
 background-color: 	#619d36;
@@ -152,7 +153,7 @@ border-color: 	#619d36;
   align-items: center;
 }
 
-.erstellen {
+#btnerstellen {
   width: 98%;
   border:  1px solid black;
   margin:  5px;
