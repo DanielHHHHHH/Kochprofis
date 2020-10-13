@@ -1,4 +1,4 @@
-// JavaScript für start.html
+// JavaScript für index.html
 
 
 const loginForm = document.querySelector(".verify");
@@ -16,6 +16,7 @@ loginForm.addEventListener("submit", (evt) => {
             "content-type": "application/json",
         },
     }).then((res) => {
+        console.log(res.ok);
         if (res.ok) {
             location.href = '/Forum-Seite.html';
         } else {
@@ -27,5 +28,5 @@ loginForm.addEventListener("submit", (evt) => {
 });
 
 button.addEventListener("click", (e) => {
-    location.href = 'register.html';
-})
+    location.href = '/register.html';
+});

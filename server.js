@@ -51,20 +51,22 @@ app.post('/login', urlencodedParser, (req, res) => {
 
 
 app.post('/register', urlencodedParser, (req, res) => {
-  console.log(req.body);
+
   if (req.body.password == req.body.passwordVerify && req.body.username != '' && req.body.password != '' && req.body.passwordVerify != '') {
 
+    res.status(200).send();
+    
     let post = {
       benutzername: req.body.username,
       passwort: req.body.password,
     }
 
-    console.log(req.body);
+    console.log(req.body); //evtl JSON Datenmodell... für readme
 
     connection.query('INSERT INTO benutzer SET ?', post, (err, res) => {
       if (err) throw err;
-      console.log('success');
-      console.log(res);
+      //console.log('success');
+      //console.log(res);
     });
   }
 
@@ -92,9 +94,8 @@ app.get('/rezepte', async (req, res) => {
 //Ein Rezept hinzufügen
 app.post('/rezepte', async (req, res) => {
   console.log(req.body);
-  if(req.body.text != '')
-  {
-    let post = 
+  if (req.body.text != '') {
+    let post =
     {
       id: rows.insertId,
       rezept: req.body.rezept,
@@ -102,17 +103,15 @@ app.post('/rezepte', async (req, res) => {
       rezeptname: req.body.rezeptname,
     }
     console.log(req.body);
-    connection.query('INSERT INTO rezepte (rezept, autor, rezeptname) VALUES (?,?,?)', post, (err, res) =>
-    {
+    connection.query('INSERT INTO rezepte (rezept, autor, rezeptname) VALUES (?,?,?)', post, (err, res) => {
       if (err) throw err;
       console.log("Daten übergeben");
       console.log(res);
     });
   }
-  else 
-  {
+  else {
     res.status(401).send();
-  }  
+  }
 });
 
 //Ein Rezept Löschen

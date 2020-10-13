@@ -1,7 +1,6 @@
 // JavaScript für register.html
 
 const registerForm = document.querySelector(".verify");
-const button = document.querySelector(".verifyButton");
 
 registerForm.addEventListener("submit", (evt) => {
     evt.preventDefault();
@@ -25,6 +24,5 @@ registerForm.addEventListener("submit", (evt) => {
     });
 
     console.log("FORM SUBMITTED", values);
-
 
 });
