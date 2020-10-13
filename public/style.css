@@ -43,26 +43,6 @@ align-items: center;
 flex-direction: column;
 }
 
-#menü a{   
-  width: 13%;
-  display: inline-block;
-  text-align:center;
-  color: white;
-  border:solid 3px black;
-  margin-bottom: 10px;
-  font-size: 24px ;
-  font-family: "Arial", Arial, Helvetica, sans-serif;
-  text-decoration: none;
-  background-color:black;
-  align-items: center;
-}
-
-#menü a:hover{
-  background-color: 	#619d36;
-  border-color: 	#619d36;
-}
-
-
 .button {
 width: auto;
 height: auto;
@@ -191,4 +171,8 @@ th {
   background-color: black;
   font-size: 18px;
   font-family: "Arial", Arial, Helvetica, sans-serif;
+}
+
+.anzeige {
+  margin-left: 43%;
 }
