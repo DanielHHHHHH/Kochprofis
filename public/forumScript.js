@@ -36,17 +36,13 @@ button.addEventListener("click", (e) => {
 
 /*
 //Button ausloggen
-const button = document.getElementById("ausloggen");
+const button = document.querySelector("#ausloggen");
 
 button.addEventListener("click", (evt) => {
-    alert("Sie werden ausgeloggt!", evt.target);
+  evt.preventDefault();
+  alert("Sie werden ausgeloggt!", evt.target);
+  location.href = '/';
 
-    evt.preventDefault();
-
-
-    const values = Object.fromEntries(new FormData(evt.target));
-
-    console.log(values);
 });
 
 /*

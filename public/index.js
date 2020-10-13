@@ -1,4 +1,6 @@
-// JavaScript für start.html
+// JavaScript für index.html
+
+
 const loginForm = document.querySelector(".verify");
 const button = document.querySelector("#btnRegister");
 
@@ -14,10 +16,11 @@ loginForm.addEventListener("submit", (evt) => {
             "content-type": "application/json",
         },
     }).then((res) => {
+        console.log(res.ok);
         if (res.ok) {
-            location.href = '/Forum-Seite.html';
+            location.href = '/Forum-Seite.html'; //Weiterleitung zur Startseite
         } else {
-            alert("Login fehlgeschlagen");
+            alert("Login fehlgeschlagen");  
         }
     });
 
@@ -25,5 +28,5 @@ loginForm.addEventListener("submit", (evt) => {
 });
 
 button.addEventListener("click", (e) => {
-    location.href = 'register.html';
-})
+    location.href = '/register.html'; //Weiterleitung zur Registrierungsseite
+});

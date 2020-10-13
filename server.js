@@ -31,7 +31,7 @@ app.listen(2222, () => {
   console.log("Server started on Port 2222")
 });
 
-
+//Methode zur Login-Validierung
 app.post('/login', urlencodedParser, (req, res) => {
   let benutzername = req.body.username;
   let passwort = req.body.password;
@@ -49,22 +49,24 @@ app.post('/login', urlencodedParser, (req, res) => {
   }
 });
 
-
+//Methode zur Registrierung ... DB-INSERT
 app.post('/register', urlencodedParser, (req, res) => {
-  console.log(req.body);
+
   if (req.body.password == req.body.passwordVerify && req.body.username != '' && req.body.password != '' && req.body.passwordVerify != '') {
 
+    res.status(200).send(); //Das ist voll wichtig... ohne des funktioniert das fetch Teil nicht
+    
     let post = {
       benutzername: req.body.username,
       passwort: req.body.password,
     }
 
-    console.log(req.body);
+    console.log(req.body); //evtl JSON Datenmodell... für readme
 
     connection.query('INSERT INTO benutzer SET ?', post, (err, res) => {
       if (err) throw err;
-      console.log('success');
-      console.log(res);
+      //console.log('success');
+      //console.log(res);
     });
   }
 
