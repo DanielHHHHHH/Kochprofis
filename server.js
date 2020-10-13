@@ -84,8 +84,6 @@ app.post('/register', urlencodedParser, (req, res) => {
 //Ein Rezept hinzufügen
 app.post('/erstellen', urlencodedParser, (req, res) => {
 
-  if(req.body.username = req.body.autor)
-  {
     console.log(req.body);
 
     res.status(200).send();
@@ -105,7 +103,6 @@ app.post('/erstellen', urlencodedParser, (req, res) => {
       console.log("Daten übergeben");
       console.log(res);
     });
-  }
 });
 
 

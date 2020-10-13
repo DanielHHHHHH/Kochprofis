@@ -26,9 +26,5 @@ registerForm.addEventListener("submit", (evt) => {
     });
 
     console.log("FORM SUBMITTED", values);
-<<<<<<< HEAD
-});
-=======
 
 });
->>>>>>> 2fc8b62743f22e8dc7e96b3e49e848593fbcf5bd
