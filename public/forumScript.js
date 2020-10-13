@@ -1,8 +1,8 @@
 //JavaScript für Forum-Seite.html
 
 //Const-Selectoren
-const erstellen = document.querySelector("#abschicken");
-const button = document.querySelector("#btnerstellen");
+const erstellen = document.querySelector(".abschicken");
+const btnerstellen  = document.querySelector("#btnerstellen");
 
 //Formular
 erstellen.addEventListener("submit", (evt) => {
@@ -10,7 +10,7 @@ erstellen.addEventListener("submit", (evt) => {
 
     const values = Object.fromEntries(new FormData(erstellen));
 
-    fetch("/", {
+    fetch("/erstellen", {
       method: "POST",
       body: JSON.stringify(values),
       headers: {
@@ -23,10 +23,21 @@ erstellen.addEventListener("submit", (evt) => {
     console.log("FORM SUBMITTED", values);
 });
 
-//Button erstellen
-button.addEventListener("click", (e) => {
-  location.href = 'register.html';
+//Button Abschicken
+btnerstellen.addEventListener("click", (evt) => {
+  location.href = '/Forum-Seite.html';
 });
+
+
+
+
+
+
+
+
+
+
+
 
 
 

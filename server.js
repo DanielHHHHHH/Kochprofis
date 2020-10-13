@@ -82,32 +82,29 @@ app.post('/register', urlencodedParser, (req, res) => {
 //Anleitung von Github
 
 //Ein Rezept hinzufügen
-app.post('/', async (req, res) => {
-  console.log(req.body);
-  
-  if(req.body.text =! '')
+app.post('/erstellen', urlencodedParser, (req, res) => {
+
+  if(req.body.username = req.body.autor)
   {
+    console.log(req.body);
+
     res.status(200).send();
+
     let post = 
     {
       rezept: req.body.text,
       autor: req.body.autor,
-      titel: req.body.titel,
+      rezeptname: req.body.titel,
     }
 
     console.log(req.body);
 
-    connection.query('INSERT INTO rezepte (rezept, autor, rezeptname?', post, (err, res) =>
+    connection.query('INSERT INTO rezepte SET ?', post, (err, res) =>
     {
       if (err) throw err;
       console.log("Daten übergeben");
       console.log(res);
     });
-  }
-
-  else
-  {
-    res.status(401).send();
   }
 });
 
