@@ -78,10 +78,10 @@ app.post('/register', urlencodedParser, (req, res) => {
 
 
 //-------------------------------------------------------------------------------------------------------
-//Alles für die Forum-Seite, da sich bei mir das "forumserver.js" nicht mit der DB verbunden hat
+//Umsetzung für Forum-Seite.html
 //Anleitung von Github
 
-//Ein Rezept hinzufügen
+//Rezept hinzufügen
 app.post('/erstellen', urlencodedParser, (req, res) => {
 
     console.log(req.body);
@@ -103,6 +103,23 @@ app.post('/erstellen', urlencodedParser, (req, res) => {
       console.log("Daten übergeben");
       console.log(res);
     });
+});
+
+//Rezepte lesen
+app.get('/laden', async (req, res) => {
+  console.log(req.query.auswahl);
+
+  console.log(req.body);
+
+  res.status(200).send();
+
+  if (req.query.auswahl)
+  {
+    const [rows,] = await connection.execute("SELECT * FROM rezepte");
+  };
+
+  console.log(rows);
+  res.json(rows);
 });
 
 
