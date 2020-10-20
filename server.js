@@ -105,7 +105,7 @@ app.post('/erstellen', urlencodedParser, (req, res) => {
     });
 });
 
-//Rezepte lesen
+//Rezepte in Tabelle ausgeben
 app.get('/laden', async (req, res) => {
   console.log(req.query.auswahl);
 
@@ -115,14 +115,32 @@ app.get('/laden', async (req, res) => {
 
   if (req.query.auswahl)
   {
-    const [rows,] = await connection.execute("SELECT * FROM rezepte");
-  };
+    const [rows] = await connection.execute("SELECT * FROM rezepte", [req.query.auswahl]);
 
-  console.log(rows);
-  res.json(rows);
+    res.json(rows);
+  }
+
+  else
+  {
+    const [rows] = await connection.execute("SELECT * FROM rezepte");
+
+    res.json(rows);
+  }
 });
 
+//Rezept löschen
+app.delete("/verwalten/:auswahl", async (req, res) => {
+  console.log(req.params.auswahl);
 
+  const [rows] = await connection.execute("DELETE FROM rezepte WHERE id = ?", [req.params.auswahl,]);
+
+  if (rows.affectedRows === 1)
+  {
+    res.status(200).send();
+  } else {
+    res.status(404).send();
+  }
+});
 
 
 

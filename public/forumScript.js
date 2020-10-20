@@ -37,18 +37,38 @@ button.addEventListener("click", (evt) => {
   location.href = '/';
 });
 
-/*
-//Probe: DB-Daten bei Laden der Seite anzeigen
-document.addEventListener('DOMContenLoaded', function(event) {
-  fetch('/laden')
-  .then(response => response.json())
-  .then(data => console.log(data));
-});
-*/
+//Const-Selectoren - Verwalten
+const verwalten = document.querySelector(".rezeptverwalten");
+const btnsuchen  = document.querySelector("#auswahl");
 
+//Rezepteverwalten löschen, anzeigen und bearbeiten
+verwalten.addEventListener("click", (evt) => {
+  evt.preventDefault();
+
+  const values = Object.fromEntries(new FormData(verwalten));
+
+  fetch("/verwalten", {
+    method: "POST",
+    body: JSON.stringify(values),
+    headers: {
+      "content-type": "application/json",
+    },
+  }).then((res) => {
+    console.log(res.ok);
+  });
+
+  console.log("FORM SUBMITTED", values);
+});
+
+btnsuchen.addEventListener("click", () => {
+  
+})
+
+
+
+//Wenn die Seite aufgerufen wird sollen die Daten aus der DB in der Tabelle angezeigt werden
 //Const-Selectoren - Laden
-const laden = document.querySelector(".rezeptverwalten");
-const btnersuchen  = document.querySelector("#suchen");
+const laden = document.querySelector(".tabelle");
 
 //Formular und Fetch - Laden
 laden.addEventListener("submit", (evt) => {
@@ -68,3 +88,4 @@ laden.addEventListener("submit", (evt) => {
 
   console.log("FORM SUBMITTED", values);
 });
+
