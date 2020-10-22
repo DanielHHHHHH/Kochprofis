@@ -37,35 +37,6 @@ button.addEventListener("click", (evt) => {
   location.href = '/';
 });
 
-/*
-//Const-Selectoren - Verwalten
-const verwalten = document.querySelector(".rezeptverwalten");
-const btnsuchen  = document.querySelector("#auswahl");
-
-//Rezepteverwalten löschen, anzeigen und bearbeiten
-verwalten.addEventListener("click", (evt) => {
-  evt.preventDefault();
-
-  const values = Object.fromEntries(new FormData(verwalten));
-
-  fetch("/verwalten", {
-    method: "POST",
-    body: JSON.stringify(values),
-    headers: {
-      "content-type": "application/json",
-    },
-  }).then((res) => {
-    console.log(res.ok);
-  });
-
-  console.log("FORM SUBMITTED", values);
-});
-
-btnsuchen.addEventListener("click", () => {
-
-})
-*/
-
 // Löschen
 const btnDelete = document.querySelector('#löschen');
 const verwalten = document.querySelector(".rezeptverwalten");
@@ -95,15 +66,12 @@ btnDelete.addEventListener("click", (evt) => {
 
 })
 
-
-
 //Wenn die Seite aufgerufen wird sollen die Daten aus der DB in der Tabelle angezeigt werden
 //Const-Selectoren - Laden
 const laden = document.querySelector(".tabelle");
-const fetchButton = document.querySelector("#suchen");
 
 //Formular und Fetch - Laden
-laden.addEventListener("click", (evt) => {
+laden.addEventListener("DOMContentLoaded", (evt) => {
   evt.preventDefault();
 
   const values = Object.fromEntries(new FormData(laden));
@@ -181,7 +149,6 @@ btnAlter.addEventListener("click", (evt) => {
 
 
 /*
-
 //Test GIT-HUB-CODE
 fetchButton.addEventListener("click", () => {
   fetch("/laden?auswahl=1")
