@@ -18,6 +18,11 @@ erstellen.addEventListener("submit", (evt) => {
       },
     }).then((res) => {
       console.log(res.ok);
+      if (res.ok) {
+        alert("Hinzufügen erfolgreich");
+      } else {
+        alert("Hinzufügen fehlgeschlagen");
+      }
     });
 
     console.log("FORM SUBMITTED", values);
@@ -36,35 +41,6 @@ button.addEventListener("click", (evt) => {
   alert("Sie werden ausgeloggt!", evt.target);
   location.href = '/';
 });
-
-/*
-//Const-Selectoren - Verwalten
-const verwalten = document.querySelector(".rezeptverwalten");
-const btnsuchen  = document.querySelector("#auswahl");
-
-//Rezepteverwalten löschen, anzeigen und bearbeiten
-verwalten.addEventListener("click", (evt) => {
-  evt.preventDefault();
-
-  const values = Object.fromEntries(new FormData(verwalten));
-
-  fetch("/verwalten", {
-    method: "POST",
-    body: JSON.stringify(values),
-    headers: {
-      "content-type": "application/json",
-    },
-  }).then((res) => {
-    console.log(res.ok);
-  });
-
-  console.log("FORM SUBMITTED", values);
-});
-
-btnsuchen.addEventListener("click", () => {
-
-})
-*/
 
 // Löschen
 const btnDelete = document.querySelector('#löschen');
@@ -93,15 +69,12 @@ btnDelete.addEventListener("click", (evt) => {
 
 })
 
-
-
 //Wenn die Seite aufgerufen wird sollen die Daten aus der DB in der Tabelle angezeigt werden
 //Const-Selectoren - Laden
 const laden = document.querySelector(".tabelle");
-const fetchButton = document.querySelector("#suchen");
 
 //Formular und Fetch - Laden
-laden.addEventListener("click", (evt) => {
+laden.addEventListener("DOMContentLoaded", (evt) => {
   evt.preventDefault();
 
   const values = Object.fromEntries(new FormData(laden));
@@ -119,6 +92,10 @@ laden.addEventListener("click", (evt) => {
   console.log("FORM SUBMITTED", values);
 });
 
+
+
+
+/*
 //Test GIT-HUB-CODE
 fetchButton.addEventListener("click", () => {
   fetch("/laden?auswahl=1")
@@ -141,4 +118,4 @@ fetchButton.addEventListener("click", () => {
     .catch((e) => {
       alert(`WHOOPS: ${e}`);
     });
-});
+});*/
