@@ -162,8 +162,6 @@ app.get('/search', async (req, res) => {
   const [rows] = connection.query('SELECT * FROM rezepte', (err, rows, fields) => {
     console.log(rows);
     res.json(rows);
-
-
   });
 
 });
@@ -172,24 +170,30 @@ app.get('/search', async (req, res) => {
 
 app.post('/update', urlencodedParser, (req, res) => {
 
-  console.log(req.body.auswahl);
-
-  let post =
-  {
-    rezepttext: req.body.text,
-    autor: req.body.autor,
-    name: req.body.titel,
-
-  }
-
   console.log(req.body);
 
-  //connection.query('INSERT INTO rezepte SET ?', post, (err, res) => {
-  //if (err) throw err;
+  if (req.body) {
 
-  // });
+    let post =
+    {
+      rezepttext: req.body.text,
+      autor: req.body.autor,
+      name: req.body.titel,
+      id: req.body.auswahl,
+    }
+    connection.query('UPDATE rezepte SET name = ?, rezepttext = ?, autor = ? WHERE id = ?', [req.body.titel, req.body.text, req.body.autor, req.body.auswahl], (err, res, rows) => {
+      if (err) throw err;
+      row = rows.affectedRows;
+      if (row == 1) {
+        console.log("1 row affected");
+        res.status(200).send();
+      } else {
+        console.log("kein row affected");
+        res.status(404).send();
+      }
+    })
+  }
 });
-
 
 
 

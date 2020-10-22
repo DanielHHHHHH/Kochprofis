@@ -130,13 +130,17 @@ btnAlter.addEventListener("click", (evt) => {
   evt.preventDefault();
   const values = Object.fromEntries(new FormData(erstellen));
   const valueId = Object.fromEntries(new FormData(verwalten));
-  values.append('id', 'test');
-  console.log(values);
+
+  console.log(values)
+  console.log(valueId)
+  valuesFin = merge_options(values,valueId);
+  console.log(valuesFin);
+
 
 
   fetch("/update", {
     method: "POST",
-    body: JSON.stringify(values),
+    body: JSON.stringify(valuesFin),
     headers: {
       "content-type": "application/json",
     },
@@ -144,7 +148,7 @@ btnAlter.addEventListener("click", (evt) => {
     console.log(res.ok);
   });
 
-  console.log("FORM SUBMITTED", values);
+  console.log("FORM SUBMITTED", valuesFin);
 });
 
 
@@ -174,7 +178,20 @@ fetchButton.addEventListener("click", () => {
 });
 */
 
-
+// https://stackoverflow.com/questions/171251/how-can-i-merge-properties-of-two-javascript-objects-dynamically
+/**
+ * Overwrites obj1's values with obj2's and adds obj2's if non existent in obj1
+ * @param obj1
+ * @param obj2
+ * @returns obj3 a new object based on obj1 and obj2
+ */
+function merge_options(obj1,obj2){
+  var obj3 = {};
+  for (var attrname in obj1) { obj3[attrname] = obj1[attrname]; }
+  for (var attrname in obj2) { obj3[attrname] = obj2[attrname]; }
+  return obj3;
+  }
+ 
 
 
 
