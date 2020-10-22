@@ -6,26 +6,6 @@ const btnerstellen = document.querySelector("#btnerstellen");
 
 //Formular und Fetch - Erstellen
 erstellen.addEventListener("submit", (evt) => {
-<<<<<<< HEAD
-    evt.preventDefault();
-
-    const values = Object.fromEntries(new FormData(erstellen));
-
-    fetch("/erstellen", {
-      method: "POST",
-      body: JSON.stringify(values),
-      headers: {
-        "content-type": "application/json",
-      },
-    }).then((res) => {
-      console.log(res.ok);
-      if (res.ok) {
-        alert("Hinzufügen erfolgreich");
-      } else {
-        alert("Hinzufügen fehlgeschlagen");
-      }
-    });
-=======
   evt.preventDefault();
 
   const values = Object.fromEntries(new FormData(erstellen));
@@ -39,7 +19,6 @@ erstellen.addEventListener("submit", (evt) => {
   }).then((res) => {
     console.log(res.ok);
   });
->>>>>>> b8a445ef8f2f03e10fe9e93a280ce5b39ecb39f6
 
   console.log("FORM SUBMITTED", values);
 });
@@ -110,8 +89,6 @@ laden.addEventListener("DOMContentLoaded", (evt) => {
   console.log("FORM SUBMITTED", values);
 });
 
-<<<<<<< HEAD
-=======
 // Rezept bearbeiten
 const btnSearch = document.querySelector('#suchen');
 const txtTitle = document.querySelector('#txtTitle');
@@ -133,15 +110,10 @@ btnSearch.addEventListener("click", (evt) => {
 
 });
 
->>>>>>> b8a445ef8f2f03e10fe9e93a280ce5b39ecb39f6
 
 
 
 /*
-<<<<<<< HEAD
-=======
-
->>>>>>> b8a445ef8f2f03e10fe9e93a280ce5b39ecb39f6
 //Test GIT-HUB-CODE
 fetchButton.addEventListener("click", () => {
   fetch("/laden?auswahl=1")
@@ -164,9 +136,6 @@ fetchButton.addEventListener("click", () => {
     .catch((e) => {
       alert(`WHOOPS: ${e}`);
     });
-<<<<<<< HEAD
-});*/
-=======
 });
 */
 
@@ -176,4 +145,3 @@ fetchButton.addEventListener("click", () => {
 
 
 
->>>>>>> b8a445ef8f2f03e10fe9e93a280ce5b39ecb39f6
