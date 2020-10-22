@@ -37,6 +37,7 @@ button.addEventListener("click", (evt) => {
   location.href = '/';
 });
 
+/*
 //Const-Selectoren - Verwalten
 const verwalten = document.querySelector(".rezeptverwalten");
 const btnsuchen  = document.querySelector("#auswahl");
@@ -61,7 +62,35 @@ verwalten.addEventListener("click", (evt) => {
 });
 
 btnsuchen.addEventListener("click", () => {
-  
+
+})
+*/
+
+// Löschen
+const btnDelete = document.querySelector('#löschen');
+const verwalten = document.querySelector(".rezeptverwalten");
+
+btnDelete.addEventListener("click", (evt) => {
+  evt.preventDefault();  
+  const values = Object.fromEntries(new FormData(verwalten));
+
+  fetch("/delete", {
+      method: "DELETE",
+      body: JSON.stringify(values),
+      headers: {
+          "content-type": "application/json",
+      },
+  }).then((res) => {
+      console.log(res.ok);
+      if (res.ok) {
+          alert("Löschen erfolgreich");
+      } else {
+          alert("Löschen fehlgeschlagen");
+      }
+  });
+
+  console.log("FORM SUBMITTED", values)
+
 })
 
 
