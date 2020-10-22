@@ -91,7 +91,7 @@ app.post('/erstellen', urlencodedParser, (req, res) => {
 
   let post =
   {
-    rezepttext: req.body.text, // hier müssen spaltennamen der db rein
+    rezepttext: req.body.text, // spaltenname:req.body.name(HTML)
     autor: req.body.autor,
     name: req.body.titel,
   }
@@ -158,6 +158,28 @@ app.get('/search', async (req, res) => {
 
   });
 
+});
+
+//Rezept updaten
+
+app.post('/update', urlencodedParser, (req, res) => {
+
+  console.log(req.body.auswahl);
+
+  let post =
+  {
+    rezepttext: req.body.text,
+    autor: req.body.autor,
+    name: req.body.titel,
+
+  }
+
+  console.log(req.body);
+
+  //connection.query('INSERT INTO rezepte SET ?', post, (err, res) => {
+  //if (err) throw err;
+
+  // });
 });
 
 

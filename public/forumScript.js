@@ -121,20 +121,31 @@ laden.addEventListener("click", (evt) => {
   console.log("FORM SUBMITTED", values);
 });
 
-// Rezept bearbeiten
+// Rezept suchen
 const btnSearch = document.querySelector('#suchen');
 const txtTitle = document.querySelector('#txtTitle');
 const txtText = document.querySelector('#txtText');
 const txtAutor = document.querySelector('#txtAutor');
-btnSearch.addEventListener("click", (evt) => {
 
+
+btnSearch.addEventListener("click", (evt) => {
+  let wanted = txtAuswahl.value;
   fetch("/search")
     .then((res) => {
       return res.json();
     })
     .then((search) => {
-      console.log(search);
-      txtTitle.value=search.name;
+      search.forEach((rezept) => {
+        if (rezept.id == wanted) {
+          txtTitle.value = rezept.name;
+          txtAutor.value = rezept.autor;
+          txtText.value = rezept.rezepttext;
+
+        } else {
+          console.log("Rezept " + rezept.id + " ist nicht das Gesuchte!")
+        }
+      });
+
     })
     .catch((e) => {
       alert(`WHOOPS: ${e}`);
@@ -142,7 +153,31 @@ btnSearch.addEventListener("click", (evt) => {
 
 });
 
+// Rezept bearbeiten
 
+const update = document.querySelector(".abschicken");
+const btnAlter = document.querySelector('#bearbeiten');
+
+btnAlter.addEventListener("click", (evt) => {
+  evt.preventDefault();
+  const values = Object.fromEntries(new FormData(erstellen));
+  const valueId = Object.fromEntries(new FormData(verwalten));
+  values.append('id', 'test');
+  console.log(values);
+
+
+  fetch("/update", {
+    method: "POST",
+    body: JSON.stringify(values),
+    headers: {
+      "content-type": "application/json",
+    },
+  }).then((res) => {
+    console.log(res.ok);
+  });
+
+  console.log("FORM SUBMITTED", values);
+});
 
 
 /*
