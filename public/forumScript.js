@@ -2,10 +2,11 @@
 
 //Const-Selectoren - Erstellen
 const erstellen = document.querySelector(".abschicken");
-const btnerstellen  = document.querySelector("#btnerstellen");
+const btnerstellen = document.querySelector("#btnerstellen");
 
 //Formular und Fetch - Erstellen
 erstellen.addEventListener("submit", (evt) => {
+<<<<<<< HEAD
     evt.preventDefault();
 
     const values = Object.fromEntries(new FormData(erstellen));
@@ -24,8 +25,23 @@ erstellen.addEventListener("submit", (evt) => {
         alert("Hinzufügen fehlgeschlagen");
       }
     });
+=======
+  evt.preventDefault();
 
-    console.log("FORM SUBMITTED", values);
+  const values = Object.fromEntries(new FormData(erstellen));
+
+  fetch("/erstellen", {
+    method: "POST",
+    body: JSON.stringify(values),
+    headers: {
+      "content-type": "application/json",
+    },
+  }).then((res) => {
+    console.log(res.ok);
+  });
+>>>>>>> b8a445ef8f2f03e10fe9e93a280ce5b39ecb39f6
+
+  console.log("FORM SUBMITTED", values);
 });
 
 //Button Abschicken
@@ -45,24 +61,26 @@ button.addEventListener("click", (evt) => {
 // Löschen
 const btnDelete = document.querySelector('#löschen');
 const verwalten = document.querySelector(".rezeptverwalten");
+const txtAuswahl = document.querySelector('#auswahl');
 
 btnDelete.addEventListener("click", (evt) => {
-  evt.preventDefault();  
+  evt.preventDefault();
   const values = Object.fromEntries(new FormData(verwalten));
 
   fetch("/delete", {
-      method: "DELETE",
-      body: JSON.stringify(values),
-      headers: {
-          "content-type": "application/json",
-      },
+    method: "DELETE",
+    body: JSON.stringify(values),
+    headers: {
+      "content-type": "application/json",
+    },
   }).then((res) => {
-      console.log(res.ok);
-      if (res.ok) {
-          alert("Löschen erfolgreich");
-      } else {
-          alert("Löschen fehlgeschlagen");
-      }
+    console.log(res.ok);
+    if (res.ok) {
+      alert("Löschen erfolgreich");
+      txtAuswahl.value = "";
+    } else {
+      alert("Löschen fehlgeschlagen");
+    }
   });
 
   console.log("FORM SUBMITTED", values)
@@ -92,10 +110,38 @@ laden.addEventListener("DOMContentLoaded", (evt) => {
   console.log("FORM SUBMITTED", values);
 });
 
+<<<<<<< HEAD
+=======
+// Rezept bearbeiten
+const btnSearch = document.querySelector('#suchen');
+const txtTitle = document.querySelector('#txtTitle');
+const txtText = document.querySelector('#txtText');
+const txtAutor = document.querySelector('#txtAutor');
+btnSearch.addEventListener("click", (evt) => {
+
+  fetch("/search")
+    .then((res) => {
+      return res.json();
+    })
+    .then((search) => {
+      console.log(search);
+      txtTitle.value=search.name;
+    })
+    .catch((e) => {
+      alert(`WHOOPS: ${e}`);
+    });
+
+});
+
+>>>>>>> b8a445ef8f2f03e10fe9e93a280ce5b39ecb39f6
 
 
 
 /*
+<<<<<<< HEAD
+=======
+
+>>>>>>> b8a445ef8f2f03e10fe9e93a280ce5b39ecb39f6
 //Test GIT-HUB-CODE
 fetchButton.addEventListener("click", () => {
   fetch("/laden?auswahl=1")
@@ -118,4 +164,16 @@ fetchButton.addEventListener("click", () => {
     .catch((e) => {
       alert(`WHOOPS: ${e}`);
     });
+<<<<<<< HEAD
 });*/
+=======
+});
+*/
+
+
+
+
+
+
+
+>>>>>>> b8a445ef8f2f03e10fe9e93a280ce5b39ecb39f6
