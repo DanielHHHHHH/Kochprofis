@@ -54,7 +54,7 @@ app.post('/register', urlencodedParser, (req, res) => {
 
   if (req.body.password == req.body.passwordVerify && req.body.username != '' && req.body.password != '' && req.body.passwordVerify != '') {
 
-    res.status(200).send(); //Das ist voll wichtig... ohne des funktioniert das fetch Teil nicht
+    res.status(200).send(); //Das ist voll wichtig... ohne des funktioniert der Fetch Teil nicht
     
     let post = {
       benutzername: req.body.username,
@@ -93,7 +93,7 @@ app.post('/erstellen', urlencodedParser, (req, res) => {
       rezept: req.body.text,
       autor: req.body.autor,
       rezeptname: req.body.titel,
-    }
+    };
 
     console.log(req.body);
 
@@ -106,27 +106,31 @@ app.post('/erstellen', urlencodedParser, (req, res) => {
 });
 
 //Rezepte in Tabelle ausgeben
-app.get('/laden', async (req, res) => {
-  console.log(req.query.auswahl);
+app.get("/laden", urlencodedParser, (req, res) => {
+  console.log("TEST");
 
-  console.log(req.body);
+  console.log(req.query.auswahl);
 
   res.status(200).send();
 
-  if (req.query.auswahl)
+  connection.query("SELECT * FROM rezepte", (err, res) => 
   {
-    const [rows] = await connection.execute("SELECT * FROM rezepte", [req.query.auswahl]);
-
-    res.json(rows);
-  }
-
-  else
-  {
-    const [rows] = await connection.execute("SELECT * FROM rezepte");
-
-    res.json(rows);
-  }
+    if (err) throw err;
+    console.log("Daten angezeigt");
+    console.log(res);
+  });
 });
+
+
+
+
+
+
+
+
+
+
+
 
 //Rezept löschen
 app.delete("/verwalten/:auswahl", async (req, res) => {

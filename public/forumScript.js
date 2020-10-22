@@ -69,9 +69,10 @@ btnsuchen.addEventListener("click", () => {
 //Wenn die Seite aufgerufen wird sollen die Daten aus der DB in der Tabelle angezeigt werden
 //Const-Selectoren - Laden
 const laden = document.querySelector(".tabelle");
+const fetchButton = document.querySelector("#suchen");
 
 //Formular und Fetch - Laden
-laden.addEventListener("submit", (evt) => {
+laden.addEventListener("click", (evt) => {
   evt.preventDefault();
 
   const values = Object.fromEntries(new FormData(laden));
@@ -89,3 +90,26 @@ laden.addEventListener("submit", (evt) => {
   console.log("FORM SUBMITTED", values);
 });
 
+//Test GIT-HUB-CODE
+fetchButton.addEventListener("click", () => {
+  fetch("/laden?auswahl=1")
+    .then((res) => {
+      // console.log(res.ok, res.status, res);
+
+      if (!res.ok) return Promise.reject(res.status);
+
+      return res.json();
+    })
+    .then((laden) => {
+      // console.log(todos);
+
+      laden.forEach((laden) => {
+        const listItem = document.createElement("li");
+        listItem.textContent = laden.title;
+
+        });
+    })
+    .catch((e) => {
+      alert(`WHOOPS: ${e}`);
+    });
+});
