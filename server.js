@@ -91,9 +91,9 @@ app.post('/erstellen', urlencodedParser, (req, res) => {
 
   let post =
   {
-    rezepttext: req.body.text, // hier müssen spaltennamen der db rein
+    rezept: req.body.text, // hier müssen spaltennamen der db rein
     autor: req.body.autor,
-    name: req.body.titel,
+    rezeptname: req.body.titel,
   }
 
   console.log(req.body);
@@ -106,19 +106,23 @@ app.post('/erstellen', urlencodedParser, (req, res) => {
 });
 
 //Rezepte in Tabelle ausgeben
-app.get("/laden", urlencodedParser, (req, res) => {
-  console.log("TEST");
+app.get("/laden", function(req, res) {
+  
+  const [rows] = connection.query("SELECT id, autor, rezeptname FROM rezepte", (err, res) => 
+  {
+    if (err) throw err;
+    console.log("Daten angezeigt");
+    console.log(res);
+  });
+  
+  res.json[rows];
+});
 
-  console.log(req.query.auswahl);
-
-  res.status(200).send();
-
-  if (req.query.auswahl) {
-    const [rows] = await connection.execute("SELECT * FROM rezepte", [req.query.auswahl]);
 
 
-  else {
-    const [rows] = await connection.execute("SELECT * FROM rezepte");
+
+
+
 
 
 //Rezept löschen
