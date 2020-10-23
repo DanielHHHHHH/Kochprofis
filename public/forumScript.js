@@ -71,23 +71,33 @@ btnDelete.addEventListener("click", (evt) => {
 const laden = document.querySelector(".tabelle");
 
 //Formular und Fetch - Laden
-laden.addEventListener("DOMContentLoaded", (evt) => {
-  evt.preventDefault();
+document.addEventListener("DOMContentLoaded", function () {
+
+  console.log("Seite geladen");
 
   const values = Object.fromEntries(new FormData(laden));
 
-  fetch("/laden", {
-    method: "POST",
-    body: JSON.stringify(values),
-    headers: {
-      "content-type": "application/json",
-    },
-  }).then((res) => {
+  fetch('/search2')
+  .then((res) => {
     console.log(res.ok);
+    if (res.ok) {
+      return res.json();  
+    } else {
+      alert("Fehler 404");
+    }
   });
 
   console.log("FORM SUBMITTED", values);
 });
+
+function loadHTMLTable(data) {
+  const table = document.querySelector('table body');
+
+  if (data.length == 0) {
+    table.innerHTML = "<tr><td class='no-data' colspan='5'> No Data </td></tr>";
+  }
+}
+
 
 // Rezept suchen
 const btnSearch = document.querySelector('#suchen');

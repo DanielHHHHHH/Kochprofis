@@ -91,7 +91,7 @@ app.post('/erstellen', urlencodedParser, (req, res) => {
 
   let post =
   {
-    rezepttext: req.body.text, // spaltenname:req.body.name(HTML)
+    rezepttext: req.body.text, // spaltenname:req.body.name(HTML) //Muss doch in der Reihenfolge von der DB sein, oder?
     autor: req.body.autor,
     rezeptname: req.body.titel,
   }
@@ -157,9 +157,20 @@ app.delete("/delete", (req, res) => {
 
 });
 
+//Rezept laden
 app.get('/search', async (req, res) => {
 
   const [rows] = connection.query('SELECT * FROM rezepte', (err, rows, fields) => {
+    console.log(rows);
+    res.json(rows);
+  });
+
+});
+
+//Rezept laden für Tabelle, nur bestimmte Spalten anzeigen
+app.get('/search2', async (req, res) => {
+
+  const [rows] = connection.query('SELECT rezeptname, rezept, autor FROM rezepte', (err, rows, fields) => {
     console.log(rows);
     res.json(rows);
   });
