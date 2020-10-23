@@ -116,9 +116,6 @@ app.get("/laden", function(req, res) {
   res.json[rows];
 });
 
-
-
-
   if (req.query.auswahl) {
     const [rows] = await connection.execute("SELECT * FROM rezepte", [req.query.auswahl]);
   }
@@ -195,21 +192,9 @@ app.post('/update', urlencodedParser, (req, res) => {
 
 
 
+
+
 /*
-//Ein Rezept Löschen
-app.delete('/rezepte/:id', async (req, res) => {
-  console.log(req.params.id);
-
-  const [rows] = await connection.execute('DELETE FROM rezepte WHERE id = ?', [req.params.id],);
-
-  if (rows.affectedRows == 1) {
-    res.status(200).send();
-  } else {
-    res.status(404).send();
-  }
-});
-
-
 //Alle Rezepte bekommen
 app.get('/rezepte', async (req, res) => {
   const [rows] = await connection.execute('SELECT rezept FROM rezepte', (err, rows, fields) => {
