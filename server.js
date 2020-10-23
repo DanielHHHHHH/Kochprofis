@@ -65,13 +65,9 @@ app.post('/register', urlencodedParser, (req, res) => {
 
     connection.query('INSERT INTO benutzer SET ?', post, (err, res) => {
       if (err) throw err;
-      //console.log('success');
-      //console.log(res);
     });
     res.status(200).send(); //Das ist voll wichtig... ohne des funktioniert das fetch Teil nicht
-  }
-
-  else {
+  } else {
     res.status(401).send();
   }
 
@@ -85,24 +81,33 @@ app.post('/register', urlencodedParser, (req, res) => {
 //Rezept hinzufügen
 app.post('/erstellen', urlencodedParser, (req, res) => {
 
-  console.log(req.body);
+  if (req.body.text != "" && req.body.autor != "" && req.body.titel != "") {
+    let post =
+    {
+      rezepttext: req.body.text, // spaltenname:req.body.name(HTML)
+      autor: req.body.autor,
+      name: req.body.titel, //bei manchen name: bei anderen rezeptname:
+    }
 
-  res.status(200).send();
-
+<<<<<<< HEAD
   let post =
   {
     rezepttext: req.body.text, // spaltenname:req.body.name(HTML) //Muss doch in der Reihenfolge von der DB sein, oder?
     autor: req.body.autor,
     rezeptname: req.body.titel,
+=======
+    connection.query('INSERT INTO rezepte SET ?', post, (err, result) => {
+      if (err) throw err;
+      if (result.affectedRows == 1) {
+        res.status(200).send();
+      } else {
+        res.status(400).send();
+      }
+    });
+  } else {
+    res.status(400).send();
+>>>>>>> e5a7b76d25d5114c9205202db1dc5e19ffa71a1c
   }
-
-  console.log(req.body);
-
-  connection.query('INSERT INTO rezepte SET ?', post, (err, res) => {
-    if (err) throw err;
-    console.log("Daten übergeben");
-    console.log(res);
-  });
 });
 
 /*
@@ -118,9 +123,6 @@ app.get("/laden", function(req, res) {
   
   res.json[rows];
 });
-
-
-
 
   if (req.query.auswahl) {
     const [rows] = await connection.execute("SELECT * FROM rezepte", [req.query.auswahl]);
@@ -146,7 +148,7 @@ app.delete("/delete", (req, res) => {
         console.log("1 row affected");
         res.status(200).send();
       } else {
-        console.log("kein row affected");
+        console.log("keine row affected");
         res.status(404).send();
       }
     });
@@ -157,11 +159,10 @@ app.delete("/delete", (req, res) => {
 
 });
 
-//Rezept laden
+//Rezept suchen
 app.get('/search', async (req, res) => {
 
-  const [rows] = connection.query('SELECT * FROM rezepte', (err, rows, fields) => {
-    console.log(rows);
+  const rows = connection.query('SELECT * FROM rezepte', (err, rows, fields) => {
     res.json(rows);
   });
 
@@ -185,22 +186,22 @@ app.post('/update', urlencodedParser, (req, res) => {
 
   if (req.body) {
 
-    let post =
-    {
-      rezepttext: req.body.text,
-      autor: req.body.autor,
-      name: req.body.titel,
-      id: req.body.auswahl,
-    }
-    connection.query('UPDATE rezepte SET name = ?, rezepttext = ?, autor = ? WHERE id = ?', [req.body.titel, req.body.text, req.body.autor, req.body.auswahl], (err, res, rows) => {
+    let name = req.body.titel;
+    let rezepttext = req.body.text;
+    let autor = req.body.autor;
+    let id = req.body.auswahl;
+
+    connection.query('UPDATE rezepte SET name = ?, rezepttext = ?, autor = ? WHERE id = ?', [name, rezepttext, autor, id], (err, result) => {
       if (err) throw err;
-      row = rows.affectedRows;
-      if (row == 1) {
+
+      if (result.affectedRows == 1) {
         console.log("1 row affected");
         res.status(200).send();
-      } else {
+      } else if (result.affectedRows == 0) {
         console.log("kein row affected");
         res.status(404).send();
+      } else {
+        console.log("mehr als eine row affected"); // kann eigentlich nicht passieren, da ID unique ist
       }
     })
   }
@@ -209,21 +210,9 @@ app.post('/update', urlencodedParser, (req, res) => {
 
 
 
+
+
 /*
-//Ein Rezept Löschen
-app.delete('/rezepte/:id', async (req, res) => {
-  console.log(req.params.id);
-
-  const [rows] = await connection.execute('DELETE FROM rezepte WHERE id = ?', [req.params.id],);
-
-  if (rows.affectedRows == 1) {
-    res.status(200).send();
-  } else {
-    res.status(404).send();
-  }
-});
-
-
 //Alle Rezepte bekommen
 app.get('/rezepte', async (req, res) => {
   const [rows] = await connection.execute('SELECT rezept FROM rezepte', (err, rows, fields) => {
