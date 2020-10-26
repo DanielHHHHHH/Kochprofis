@@ -4,6 +4,7 @@ const express = require("express");
 const mysql = require("mysql");
 const session = require("express-session");
 const bodyParser = require('body-parser');
+const fs =require('fs');
 //const alert = require('alert');
 const app = express();
 
@@ -89,13 +90,6 @@ app.post('/erstellen', urlencodedParser, (req, res) => {
       name: req.body.titel, //bei manchen name: bei anderen rezeptname:
     }
 
-<<<<<<< HEAD
-  let post =
-  {
-    rezepttext: req.body.text, // spaltenname:req.body.name(HTML) //Muss doch in der Reihenfolge von der DB sein, oder?
-    autor: req.body.autor,
-    rezeptname: req.body.titel,
-=======
     connection.query('INSERT INTO rezepte SET ?', post, (err, result) => {
       if (err) throw err;
       if (result.affectedRows == 1) {
@@ -106,7 +100,6 @@ app.post('/erstellen', urlencodedParser, (req, res) => {
     });
   } else {
     res.status(400).send();
->>>>>>> e5a7b76d25d5114c9205202db1dc5e19ffa71a1c
   }
 });
 
@@ -169,14 +162,14 @@ app.get('/search', async (req, res) => {
 });
 
 //Rezept laden für Tabelle, nur bestimmte Spalten anzeigen
-app.get('/search2', async (req, res) => {
+/*app.get('/search2', async (req, res) => {
 
   const [rows] = connection.query('SELECT rezeptname, rezept, autor FROM rezepte', (err, rows, fields) => {
     console.log(rows);
     res.json(rows);
   });
 
-});
+});*/
 
 //Rezept updaten
 
@@ -206,6 +199,29 @@ app.post('/update', urlencodedParser, (req, res) => {
     })
   }
 });
+
+//rezepte laden
+
+app.post('/uebersicht', urlencodedParser, (req, res) => {
+
+  res.status(200).send()
+    connection.query('SELECT * FROM rezepte',  (err, res, fields)=> {
+      if (err) {
+        res.status(401).send()
+      }  
+       else {
+         fs.writeFile('public/table.json',JSON.stringify(res), function(err){
+           if(err){throw err;}
+           else{console.log('saved');
+          }
+
+         });      
+      }
+      
+    });
+  
+});
+
 
 
 

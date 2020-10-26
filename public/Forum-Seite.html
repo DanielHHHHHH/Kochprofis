@@ -7,6 +7,7 @@
     <header>
 
     </header>
+    <script src= "https://code.jquery.com/jquery-3.5.1.js"> </script> 
     <link rel="stylesheet" tyoe="test/css" href="style.css">
 </head>
 <body>
@@ -24,6 +25,9 @@
              <div class="spalteFeatures">
                  <button class="button" type="button" id="löschen"> Rezept Löschen </button>
              </div>
+             <div class="spalteFeatures">
+                <button class="button" type="button" id="alle"> Aktualisieren</button>
+            </div>
 
              <div class="spalteA">
                 <button class="button" type="button" id="ausloggen"> Ausloggen </button>
@@ -31,7 +35,7 @@
         </form>
     </div>
 
-    <form class="tabelle">
+   <!-- <form class="tabelle">
         <table id="table">
             <thread>
                 <th> ID </th>
@@ -41,8 +45,52 @@
             <tbody> </tbody>
         </table>
     </form>
-    Kommentar: Daten werden in die Tabelle durch DB eingeladen (Hoffentlich)
-
+    Kommentar: Daten werden in die Tabelle durch DB eingeladen (Hoffentlich)-->
+    <table id='table' > 
+        <!-- HEADING FORMATION -->
+        <tr> 
+            <th id="id">Id</th> 
+            <th id="titel">Titel</th> 
+           <!--<th >Rezept</th> -->
+            <th id ="autor">Autor</th> 
+            
+        </tr> 
+        </table>
+    
+        <script> 
+            $(document).ready(function () { 
+    
+                // FETCHING DATA FROM JSON FILE 
+                $.getJSON("table.json",  
+                        function (data) { 
+                    var rezept = ''; 
+    
+                    // ITERATING THROUGH OBJECTS 
+                    $.each(data, function (key, value) { 
+    
+                        //CONSTRUCTION OF ROWS HAVING 
+                        // DATA FROM JSON OBJECT 
+                        rezept += '<tr>'; 
+                            rezept += '<td>' +  
+                            value.id + '</td>'; 
+    
+                            rezept += '<td>' +  
+                            value.name + '</td>'; 
+    
+                            //rezept += '<td>' +  
+                            //value.rezepttext + '</td>'; 
+    
+                            rezept += '<td>' +  
+                            value.autor + '</td>'; 
+    
+                            rezept += '</tr>'; 
+                    }); 
+                      
+                    //INSERTING ROWS INTO TABLE  
+                    $('#table').append(rezept); 
+                }); 
+            }); 
+        </script> 
     <div class="container"> 
         <form class="abschicken" name="newRecForm">
 

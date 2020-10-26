@@ -85,7 +85,7 @@ btnDelete.addEventListener("click", (evt) => {
 const laden = document.querySelector(".tabelle");
 
 //Formular und Fetch - Laden
-document.addEventListener("DOMContentLoaded", function () {
+/*document.addEventListener("DOMContentLoaded", function () {
 
   console.log("Seite geladen");
 
@@ -110,7 +110,7 @@ function loadHTMLTable(data) {
   if (data.length == 0) {
     table.innerHTML = "<tr><td class='no-data' colspan='5'> No Data </td></tr>";
   }
-}
+}*/
 
 
 // Rezept suchen
@@ -194,6 +194,31 @@ btnAlter.addEventListener("click", (evt) => {
   console.log("FORM SUBMITTED", valuesFin);
 });
 
+//Rezepte in Tabelle anzeigen
+const btnalle  = document.querySelector('#alle');
+
+
+btnalle.addEventListener("click", (evt) => {
+    evt.preventDefault();
+
+    //const values = Object.fromEntries(new FormData(verwalten));
+   
+
+    fetch("/uebersicht",  {
+      method: "POST",
+      body: JSON.stringify(),
+      headers: {
+        "content-type": "application/json",
+      },
+      
+    }).then((res) => {
+      console.log(res.ok);
+      location.href = '/Forum-Seite.html';
+      
+    });
+
+    console.log("FORM SUBMITTED");
+});
 
 /*
 //Test GIT-HUB-CODE
