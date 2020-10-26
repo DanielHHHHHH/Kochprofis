@@ -4,7 +4,7 @@ const express = require("express");
 const mysql = require("mysql");
 const session = require("express-session");
 const bodyParser = require('body-parser');
-const fs =require('fs');
+const fs = require('fs');
 //const alert = require('alert');
 const app = express();
 
@@ -204,28 +204,23 @@ app.post('/update', urlencodedParser, (req, res) => {
 
 app.post('/uebersicht', urlencodedParser, (req, res) => {
 
-  res.status(200).send()
-    connection.query('SELECT * FROM rezepte',  (err, res, fields)=> {
-      if (err) {
-        res.status(401).send()
-      }  
-       else {
-         fs.writeFile('public/table.json',JSON.stringify(res), function(err){
-           if(err){throw err;}
-           else{console.log('saved');
-          }
-
-         });      
-      }
-      
-    });
   
+
+  connection.query('SELECT * FROM rezepte', (err, result, fields) => {
+    if (err) {
+      res.status(401).send()
+    }
+    else {
+      res.status(200).send()
+      fs.writeFile('public/table.json', JSON.stringify(result), function (err) {
+        if (err) { throw err; }
+
+      });
+    }
+
+  });
+
 });
-
-
-
-
-
 
 
 /*

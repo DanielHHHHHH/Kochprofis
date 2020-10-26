@@ -195,7 +195,7 @@ btnAlter.addEventListener("click", (evt) => {
 });
 
 //Rezepte in Tabelle anzeigen
-const btnalle  = document.querySelector('#alle');
+const btnalle  = document.querySelector('#aktualisieren');
 
 
 btnalle.addEventListener("click", (evt) => {
