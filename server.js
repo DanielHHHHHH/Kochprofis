@@ -89,13 +89,6 @@ app.post('/erstellen', urlencodedParser, (req, res) => {
       name: req.body.titel, //bei manchen name: bei anderen rezeptname:
     }
 
-<<<<<<< HEAD
-  let post =
-  {
-    rezepttext: req.body.text, // spaltenname:req.body.name(HTML) //Muss doch in der Reihenfolge von der DB sein, oder?
-    autor: req.body.autor,
-    rezeptname: req.body.titel,
-=======
     connection.query('INSERT INTO rezepte SET ?', post, (err, result) => {
       if (err) throw err;
       if (result.affectedRows == 1) {
@@ -106,7 +99,6 @@ app.post('/erstellen', urlencodedParser, (req, res) => {
     });
   } else {
     res.status(400).send();
->>>>>>> e5a7b76d25d5114c9205202db1dc5e19ffa71a1c
   }
 });
 
