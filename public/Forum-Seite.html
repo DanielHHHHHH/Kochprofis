@@ -1,104 +1,103 @@
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <header>
-
     </header>
-    <script src= "https://code.jquery.com/jquery-3.5.1.js"> </script> 
+
+    <script src="https://code.jquery.com/jquery-3.5.1.js"> </script>
     <link rel="stylesheet" tyoe="test/css" href="style.css">
 </head>
+
 <body>
-      <!-- Zeile mit den Button für erstellen, bearbeiten und löschen -->
+    <!-- Zeile mit den Button für erstellen, bearbeiten, aktualisieren, ausloggen und löschen -->
     <div class="container">
-        <form class="rezeptverwalten" name = "manageForm">
+        <form class="rezeptverwalten" name="manageForm">
+
             <div class="spalteFeatures">
                 <input type="text" name="auswahl" id="auswahl" placeholder="Rezept Id Auswählen">
                 <button class="button" type="button" id="suchen"> Rezept Suchen </button>
-            </div>                 
-             <div class="spalteFeatures">
-                 <button class="button" type="button" id="bearbeiten"> Rezept Bearbeiten </button>
-             </div>
-     
-             <div class="spalteFeatures">
-                 <button class="button" type="button" id="löschen"> Rezept Löschen </button>
-             </div>
-             <div class="spalteFeatures">
+            </div>
+
+            <div class="spalteFeatures">
+                <button class="button" type="button" id="bearbeiten"> Rezept Bearbeiten </button>
+            </div>
+
+            <div class="spalteFeatures">
+                <button class="button" type="button" id="löschen"> Rezept Löschen </button>
+            </div>
+
+            <div class="spalteFeatures">
                 <button class="button" type="button" id="aktualisieren"> Aktualisieren</button>
             </div>
 
-             <div class="spalteA">
+            <div class="spalteA">
                 <button class="button" type="button" id="ausloggen"> Ausloggen </button>
             </div>
         </form>
     </div>
 
-    <table id='table' > 
-        <!-- HEADING FORMATION -->
-        <tr> 
-            <th id="id">Id</th> 
-            <th id="titel">Titel</th> 
-           <!--<th >Rezept</th> -->
-            <th id ="autor">Autor</th> 
-            
-        </tr> 
-        </table>
-    
-        <script> 
-            $(document).ready(function () { 
-    
-                // FETCHING DATA FROM JSON FILE 
-                $.getJSON("table.json",  
-                        function (data) { 
-                    var rezept = ''; 
-    
-                    // ITERATING THROUGH OBJECTS 
-                    $.each(data, function (key, value) { 
-    
-                        //CONSTRUCTION OF ROWS HAVING 
-                        // DATA FROM JSON OBJECT 
-                        rezept += '<tr>'; 
-                            rezept += '<td>' +  
-                            value.id + '</td>'; 
-    
-                            rezept += '<td>' +  
-                            value.name + '</td>'; 
-    
-                            //rezept += '<td>' +  
-                            //value.rezepttext + '</td>'; 
-    
-                            rezept += '<td>' +  
-                            value.autor + '</td>'; 
-    
-                            rezept += '</tr>'; 
-                    }); 
-                      
-                    //INSERTING ROWS INTO TABLE  
-                    $('#table').append(rezept); 
-                }); 
-            }); 
-        </script> 
-    <div class="container"> 
-        <div class="rezeptanzeigen">
-        <form class="abschicken" name="newRecForm">
+    <table id='table'>
+        <tr>
+            <th id="id">Id</th>
+            <th id="titel">Titel</th>
+            <th id="autor">Autor</th>
+        </tr>
+    </table>
 
-            
-            <br><br>
-            <input type="text" id="txtTitle" name="titel" class="anzeige" placeholder="Rezepttitel" required> </input>
-            <br><br>
-            <textarea name="text" id="txtText" cols="150" rows="20" placeholder="Rezepttext" required></textarea>
-            <br><br>
-            <input type="titel" id="txtAutor" name="autor" class="anzeige" placeholder="Autor" required> </input>
-            <br><br>
-            <button class="button" type="submit" id="btnerstellen"> Rezept erstellen </button>
-        </form>
+    <script>
+        $(document).ready(function () {
+
+            // Daten aus table.json lesen
+            $.getJSON("table.json", function (data) {
+                var rezept = '';
+
+                // Objekt durchlaufen
+                $.each(data, function (key, value) {
+
+                    // Daten aus JSON-Objekt in Tabelle schreiben
+                    rezept += '<tr>';
+                    rezept += '<td>' +
+                        value.id + '</td>';
+
+                    rezept += '<td>' +
+                        value.name + '</td>';
+
+                    rezept += '<td>' +
+                        value.autor + '</td>';
+
+                    rezept += '</tr>';
+                });
+
+                //Reihen in Tabelle einsetzen
+                $('#table').append(rezept);
+            });
+        }); 
+    </script>
+
+    <!--Container, in welchem Rezepttitel, Rezepttext und Autor eingegeben und angezeigt werden-->
+    <div class="container">
+        <div class="rezeptanzeigen">
+            <form class="abschicken" name="newRecForm">
+                <br> <br>
+                <input type="text" id="txtTitle" name="titel" class="anzeige" placeholder="Rezepttitel" required>
+                </input>
+                <br><br>
+                <textarea name="text" id="txtText" cols="150" rows="20" placeholder="Rezepttext" required></textarea>
+                <br><br>
+                <input type="titel" id="txtAutor" name="autor" class="anzeige" placeholder="Autor" required> </input>
+                <br><br>
+                <button class="button" type="submit" id="btnerstellen"> Rezept erstellen </button>
+            </form>
+        </div>
     </div>
-    </div>
-    
+
 
     <!-- Einbinden des JavaScripts -->
-    <script src = "forumScript.js">  </script>
+    <script src="forumScript.js">  </script>
 </body>
+
 </html>
