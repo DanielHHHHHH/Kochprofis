@@ -42,7 +42,21 @@ Das ist eine Beispiel JSON für alle verwendeten Datenmodelle:
 [ { "id": 1, "name" :"Hier steht der Name", "rezepttext": "Hier steht der Rezepttext", "autor": "Hier steht der Autor" } ]
 ```
 
-** REST Services **
+**REST Services**
+
+In der server.js werden alle REST-Service durchgeführt.
+Mit dem "connection.connect" wird eine Verbindung zur Datenbank aufgebaut. Dabei wird eine Fehlermeldung ausgegeben, wenn die Verbindung nicht funktioniert hat und einen Eintrag in der Konsoloe, wenn die Verbinung erfolgreich war.
+
+Mit der REST-Funktion "post" werden die Daten auf der Webseite mit den Daten aus der Datenbank abgeglichen. 
+Dies wird beim einloggen und dem Registrieren neuer Benutzer verwendet. 
+Zudem hat es die Funktion eingegebene Daten auf der Website, in die Tabellen von der Datenbank einzufügen. 
+Somit kann man auf unserer Seite sich als neuen Benutzer anlegen und neue Rezepte in die Datenbank hinzufügen.
+
+Um Daten aus der Datenbank löschen zu können, wird die Funktion "delete" verwendet. Mit ihr wird eine bestimmte Zeile aus der Datenbank oder mehrere Datenbankinhalte gelöscht.
+Auf der Website wählt man hier die ID eines Rezeptes aus und über die Funktion wird die Zeile mit der übereinstimmenden ID aus der Datenbank gelöscht.
+
+Damit Daten in der Tabelle auf der Forumseite angezeigt werden, wird die REST-Funktion "get" verwendet. Über diese Funktion kann man Datenbankinhalte anfordern und anzeigen lassen.
+
 
 ** Frontend **
 
