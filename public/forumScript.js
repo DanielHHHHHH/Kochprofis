@@ -31,13 +31,6 @@ erstellen.addEventListener("submit", (evt) => {
   console.log("FORM SUBMITTED", values);
 });
 
-/*
-//Button Abschicken
-btnerstellen.addEventListener("click", (evt) => {
-  location.href = '/Forum-Seite.html';
-});
-*/
-
 //Button ausloggen
 const button = document.querySelector("#ausloggen");
 
@@ -80,37 +73,8 @@ btnDelete.addEventListener("click", (evt) => {
 
 })
 
-//Wenn die Seite aufgerufen wird sollen die Daten aus der DB in der Tabelle angezeigt werden
 //Const-Selectoren - Laden
 const laden = document.querySelector(".tabelle");
-
-//Formular und Fetch - Laden
-/*document.addEventListener("DOMContentLoaded", function () {
-
-  console.log("Seite geladen");
-
-  const values = Object.fromEntries(new FormData(laden));
-
-  fetch('/search2')
-  .then((res) => {
-    console.log(res.ok);
-    if (res.ok) {
-      return res.json();  
-    } else {
-      alert("Fehler 404");
-    }
-  });
-
-  console.log("FORM SUBMITTED", values);
-});
-
-function loadHTMLTable(data) {
-  const table = document.querySelector('table body');
-
-  if (data.length == 0) {
-    table.innerHTML = "<tr><td class='no-data' colspan='5'> No Data </td></tr>";
-  }
-}*/
 
 
 // Rezept suchen
@@ -220,31 +184,6 @@ btnalle.addEventListener("click", (evt) => {
     console.log("FORM SUBMITTED");
 });
 
-/*
-//Test GIT-HUB-CODE
-fetchButton.addEventListener("click", () => {
-  fetch("/laden?auswahl=1")
-    .then((res) => {
-      // console.log(res.ok, res.status, res);
-
-      if (!res.ok) return Promise.reject(res.status);
-
-      return res.json();
-    })
-    .then((laden) => {
-      // console.log(todos);
-
-      laden.forEach((laden) => {
-        const listItem = document.createElement("li");
-        listItem.textContent = laden.title;
-
-        });
-    })
-    .catch((e) => {
-      alert(`WHOOPS: ${e}`);
-    });
-});
-*/
 
 // https://stackoverflow.com/questions/171251/how-can-i-merge-properties-of-two-javascript-objects-dynamically
 /**
