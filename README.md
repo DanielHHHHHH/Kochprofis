@@ -2,7 +2,7 @@
 Kochprofis ist eine Website, die Ihnen hilft, Ihr perfektes Kochrezept zu finden. Sie können zusätzlich noch eigene Rezepte mit anderen Personen teilen.
 
 ## Entwickler
-* :woman: Laura Biberle
+* :woman: Laura Bieberle
 * :woman: Gianna Dihpol
 * :man: Daniel Haberberger
 * :man: Julian Hermle

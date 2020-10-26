@@ -47,7 +47,7 @@ width: auto;
 height: auto;
 display: inline-block;
 text-align:center;
-font-size: 16px;
+font-size: 18px;
 color: white;
 font-family: "Arial", Arial, Helvetica, sans-serif;
 background: transparent;
@@ -132,7 +132,7 @@ textarea {
 	border: 1px solid black;
   font-family: Tahoma, sans-serif;
   resize:none;
-  cursor: pointer;
+  
 }
 #table {
   width: 100%; 
@@ -173,4 +173,8 @@ td{
 
 ::placeholder{
   text-align: center;
+}
+#auswahl{
+
+  font-family: "Arial", Arial, Helvetica, sans-serif;
 }

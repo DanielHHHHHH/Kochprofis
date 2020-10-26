@@ -73,7 +73,6 @@ btnDelete.addEventListener("click", (evt) => {
 
 })
 
-//Wenn die Seite aufgerufen wird sollen die Daten aus der DB in der Tabelle angezeigt werden
 //Const-Selectoren - Laden
 const laden = document.querySelector(".tabelle");
 
