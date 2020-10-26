@@ -4,6 +4,7 @@ const express = require("express");
 const mysql = require("mysql");
 const session = require("express-session");
 const bodyParser = require('body-parser');
+const fs = require('fs');
 //const alert = require('alert');
 const app = express();
 
@@ -161,14 +162,14 @@ app.get('/search', async (req, res) => {
 });
 
 //Rezept laden für Tabelle, nur bestimmte Spalten anzeigen
-app.get('/search2', async (req, res) => {
+/*app.get('/search2', async (req, res) => {
 
   const [rows] = connection.query('SELECT rezeptname, rezept, autor FROM rezepte', (err, rows, fields) => {
     console.log(rows);
     res.json(rows);
   });
 
-});
+});*/
 
 //Rezept updaten
 
@@ -199,9 +200,27 @@ app.post('/update', urlencodedParser, (req, res) => {
   }
 });
 
+//rezepte laden
 
+app.post('/uebersicht', urlencodedParser, (req, res) => {
 
+  
 
+  connection.query('SELECT * FROM rezepte', (err, result, fields) => {
+    if (err) {
+      res.status(401).send()
+    }
+    else {
+      res.status(200).send()
+      fs.writeFile('public/table.json', JSON.stringify(result), function (err) {
+        if (err) { throw err; }
+
+      });
+    }
+
+  });
+
+});
 
 
 /*
