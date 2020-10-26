@@ -129,8 +129,7 @@ border-color: 	#619d36;
   border-color: 	#619d36;
 }
 
-textarea {
-  caret-color: white;  
+textarea {  
 	width: 60em;
 	height: 15em;
 	border: 1px solid black;
