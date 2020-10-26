@@ -54,7 +54,12 @@ background: transparent;
 border: none;
 }
 
-.button:hover{
+.spalteFeatures:hover{
+background-color: 	#619d36;
+border-color: 	#619d36;
+}
+
+.spalteA:hover{
 background-color: 	#619d36;
 border-color: 	#619d36;
 }
@@ -157,7 +162,7 @@ td{
 }
 
 .anzeige {
-  margin-left: 43%;
+  margin-left: 35%;
   width: auto;
   font-size: 18px;
   font-family: "Arial", Arial, Helvetica, sans-serif;
@@ -169,4 +174,8 @@ td{
   align-items: center;
   flex-direction: column;
     
+}
+
+::placeholder{
+  text-align: center;
 }
