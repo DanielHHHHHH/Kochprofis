@@ -11,7 +11,7 @@ Kochprofis ist eine Website, die Ihnen hilft, Ihr perfektes Kochrezept zu finden
 ## Quickstart
 
 1. git clone https://github.com/DanielHHHHHH/Kochprofis.git
-2. 
+2. DB mit der "database.sql" einladen, bestenfalls in phpmyadmin
 3. npm install
 4. npm start
 5. http://localhost:2222
