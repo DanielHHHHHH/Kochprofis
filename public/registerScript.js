@@ -2,13 +2,11 @@
 
 const registerForm = document.querySelector(".verify");
 
+//Formular und Fetch - Registrieren
 registerForm.addEventListener("submit", (evt) => {
     evt.preventDefault();
 
-
     const values = Object.fromEntries(new FormData(registerForm));
-
-    
 
     fetch("/register", {
         method: "POST",
@@ -16,6 +14,7 @@ registerForm.addEventListener("submit", (evt) => {
         headers: {
             "content-type": "application/json",
         },
+
     }).then((res) => {
         console.log(res.ok);
         if (res.ok) {

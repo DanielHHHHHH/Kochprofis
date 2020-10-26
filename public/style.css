@@ -11,6 +11,8 @@ body {
   background-color:white;
 }
 
+/*Styles für login.html und register.html*/
+
 .verifyButton{
 width: 13%;
 height: 1%;
@@ -41,6 +43,8 @@ margin-top: 50px;
 align-items: center;
 flex-direction: column;
 }
+
+/*Styles für Forum-Seite.html*/
 
 .button {
 width: auto;

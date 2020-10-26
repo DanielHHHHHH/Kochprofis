@@ -3,6 +3,7 @@
 const loginForm = document.querySelector(".verify");
 const button = document.querySelector("#btnRegister");
 
+//Formular und Fetch - Login
 loginForm.addEventListener("submit", (evt) => {
     evt.preventDefault();
 
