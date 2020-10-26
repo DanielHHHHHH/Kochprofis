@@ -9,6 +9,7 @@ const app = express();
 
 var urlencodedParser = bodyParser.urlencoded({ extended: false })
 
+//Connection zur Datenbank aufbauen
 const connection = mysql.createConnection({
   host: 'localhost',
   user: 'root',
@@ -54,6 +55,7 @@ app.post('/login', urlencodedParser, (req, res) => {
 //Methode zur Registrierung ... DB-INSERT
 app.post('/register', urlencodedParser, (req, res) => {
 
+  //Abfrage ob Passwörter übereinstimmen und alle Felder ausgefüllt sind
   if (req.body.password == req.body.passwordVerify && req.body.username != '' && req.body.password != '' && req.body.passwordVerify != '') {
 
     let post = {
@@ -61,28 +63,28 @@ app.post('/register', urlencodedParser, (req, res) => {
       passwort: req.body.password,
     }
 
-    console.log(req.body); //evtl JSON Datenmodell... für readme
+    console.log(req.body);
 
     connection.query('INSERT INTO benutzer SET ?', post, (err, res) => {
       if (err) throw err;
     });
-    res.status(200).send(); //Das ist voll wichtig... ohne des funktioniert das fetch Teil nicht
-  } else {
+    res.status(200).send(); 
+  } 
+  else {
     res.status(401).send();
   }
-
 });
-
 
 //Rezept hinzufügen
 app.post('/erstellen', urlencodedParser, (req, res) => {
 
+  // Abfrage, damit kein Feld leer ist
   if (req.body.text != "" && req.body.autor != "" && req.body.titel != "") {
     let post =
     {
-      rezepttext: req.body.text, // spaltenname:req.body.name(HTML)
+      rezepttext: req.body.text,
       autor: req.body.autor,
-      name: req.body.titel, //bei manchen name: bei anderen rezeptname:
+      name: req.body.titel, 
     }
 
     connection.query('INSERT INTO rezepte SET ?', post, (err, result) => {
@@ -103,7 +105,6 @@ app.post('/erstellen', urlencodedParser, (req, res) => {
 app.delete("/delete", (req, res) => {
 
   let id = req.body.auswahl;
-
   var row;
 
   if (id) {
@@ -121,7 +122,6 @@ app.delete("/delete", (req, res) => {
     console.log("Keine ID");
     res.status(404).send();
   }
-
 });
 
 //Rezept suchen
@@ -135,7 +135,6 @@ app.get('/search', async (req, res) => {
 
 
 //Rezept updaten
-
 app.post('/update', urlencodedParser, (req, res) => {
 
   console.log(req.body);
@@ -153,21 +152,20 @@ app.post('/update', urlencodedParser, (req, res) => {
       if (result.affectedRows == 1) {
         console.log("1 row affected");
         res.status(200).send();
-      } else if (result.affectedRows == 0) {
+      } 
+      else if (result.affectedRows == 0) {
         console.log("kein row affected");
         res.status(404).send();
-      } else {
+      } 
+      else {
         console.log("mehr als eine row affected"); // kann eigentlich nicht passieren, da ID unique ist
       }
     })
   }
 });
 
-//rezepte laden
-
+//Rezepte laden und in der Tabelle anzeigen
 app.post('/uebersicht', urlencodedParser, (req, res) => {
-
-  
 
   connection.query('SELECT * FROM rezepte', (err, result, fields) => {
     if (err) {
@@ -175,12 +173,10 @@ app.post('/uebersicht', urlencodedParser, (req, res) => {
     }
     else {
       res.status(200).send()
+      //Datensätze aus der Datenbank in die JSON-Datei table.json schreiben
       fs.writeFile('public/table.json', JSON.stringify(result), function (err) {
         if (err) { throw err; }
-
       });
     }
-
   });
-
 });
