@@ -76,10 +76,14 @@ Unter der Tabelle sind die Eingabefelder der Funktionen "Rezept Erstellen" und "
 
 In der "index.html" befindet sich ein Formular, dass zwei Textfelder und zwei Buttons enthält. Im "index.js" wir dieses Formular über einen fetch angesprochen. Dieser fetch wird ausgelöst, wenn der Button "Anmelden" gedrückt wird. Dadurch wird in der "server.js" der passende REST-Service verwendet. Wenn es keine Fehler gibt, wird man auf die Forumseite weitergeleitet.
 
-In der "index.js" gibt es auch noch einen Event-Listener, der mit einem Button verbunden ist. Wenn man diesen klick, wird man auf die "register.html" weitergeleitet.
+In der "index.js" gibt es auch noch einen Event-Listener, der mit einem Button verbunden ist. Wenn man diesen klickt, wird man auf die "register.html" weitergeleitet.
 
 Auf der "register.html" gibt es ein Formular, dass alles Textfelder und Buttons auf der Seite beinhaltet. In der "registerScript.js" gibt es dann einen fetch, der beim klicken des Button ausgelöst wird. Dann wird der richtige REST-Service in der "server.js" gesucht und ausgeführt. Danach wird man auf die "Forum-Seite.html" weitergeleitet.
 
 Auf der "Forum-Seite.html" gibt es ein Formular, dass die Felder zum Anzeigen eines Textes und den Button zum Erstellen eines Textes beinhaltet. Wird der Button gedrückt aktiviert sich der Event-Listener, in dem sich der Fetch befindet. Dann wird in der "server.js" der richtige REST-Service ausgeführt. Die Felder zum Eingeben von den Daten werden geleert und die Daten an die Datenbank übergeben. Es gibt jeweils einen Hinweis für eine erfolgreiche und fehlerhafte Durchführung.
 
-Um sich aus zu loggen gibt es auf der "Forum-Seite.html" einen Button dafür. In der "forumScript.js" gibt es einen passenden Event-Listener, der durch einen Klick auf den Button "Ausloggen" ausgelöst wird. Dadurch wir man auf die Loginseite geführt
+Um sich aus zu loggen gibt es auf der "Forum-Seite.html" einen Button dafür. In der "forumScript.js" gibt es einen passenden Event-Listener, der durch einen Klick auf den Button "Ausloggen" ausgelöst wird. Dadurch wir man auf die Loginseite geführt.
+
+Eine weitere Funktion der "Forum-Seite.html" ist es, einen Eintrag zu löschen. Drückt man den "Löschen-Button", wird ein Event-Listener aktiviert, der den Fetch "delete" enthält. Dann wird in der "server.js" der richtige REST-Service ausgeführt. Die ausgwählten Daten werden aus der Datenbank gelöscht. Daraufhin erfolgt ein Hinweis, der eine erfolgreiche oder fehlerhafte Durchführung kennzeichnet.
+
+Um einen Rezepttext anzuzeigen, muss die ID in das Feld "Rezept Id Auswählen" geschrieben werden und auf den "Rezept Suchen" Button geklickt werden. Mit dem Klick auf den Button wird ein Event-Listener aktiviert, der einen fetch-request beinhaltet. Dadurch werden die zum Eintrag gehörenden Daten aus der Datenbank in das Textfeld "Rezepttext" geladen. Die Bestätigung, ob die Aktion erfolgreich war, erfolgt durch einen alert.
