@@ -73,3 +73,13 @@ Auf der Forumsseite bilden die Buttons, durch die die Hauptfunktionen ausgeführ
 Darunter ist eine Tabelle, die alle gespeicherten Rezepte des Forums anzeigen. Es werden die Spaltennamen "Id", "Titel" und "Autor" angezeigt.
 
 Unter der Tabelle sind die Eingabefelder der Funktionen "Rezept Erstellen" und "Rezept Bearbeiten". Dazu zählen zwei Textfelder, in die der Name des Autors und der Titel geschrieben werden können. Zwischen den Textfeldern befindet sich eine größere Textarea, in welcher der eigentliche Rezepttitel Platz findet. Um die Erstellung eines Rezepts abzuschließen gibt es unter dem Textfeld für den Autor einen Button "Rezept Erstellen".
+
+In der "index.html" befindet sich ein Formular, dass zwei Textfelder und zwei Buttons enthält. Im "index.js" wir dieses Formular über einen fetch angesprochen. Dieser fetch wird ausgelöst, wenn der Button "Anmelden" gedrückt wird. Dadurch wird in der "server.js" der passende REST-Service verwendet. Wenn es keine Fehler gibt, wird man auf die Forumseite weitergeleitet.
+
+In der "index.js" gibt es auch noch einen Event-Listener, der mit einem Button verbunden ist. Wenn man diesen klick, wird man auf die "register.html" weitergeleitet.
+
+Auf der "register.html" gibt es ein Formular, dass alles Textfelder und Buttons auf der Seite beinhaltet. In der "registerScript.js" gibt es dann einen fetch, der beim klicken des Button ausgelöst wird. Dann wird der richtige REST-Service in der "server.js" gesucht und ausgeführt. Danach wird man auf die "Forum-Seite.html" weitergeleitet.
+
+Auf der "Forum-Seite.html" gibt es ein Formular, dass die Felder zum Anzeigen eines Textes und den Button zum Erstellen eines Textes beinhaltet. Wird der Button gedrückt aktiviert sich der Event-Listener, in dem sich der Fetch befindet. Dann wird in der "server.js" der richtige REST-Service ausgeführt. Die Felder zum Eingeben von den Daten werden geleert und die Daten an die Datenbank übergeben. Es gibt jeweils einen Hinweis für eine erfolgreiche und fehlerhafte Durchführung.
+
+Um sich aus zu loggen gibt es auf der "Forum-Seite.html" einen Button dafür. In der "forumScript.js" gibt es einen passenden Event-Listener, der durch einen Klick auf den Button "Ausloggen" ausgelöst wird. Dadurch wir man auf die Loginseite geführt

@@ -2,7 +2,6 @@
 
 //Const-Selectoren - Erstellen
 const erstellen = document.querySelector(".abschicken");
-const btnerstellen = document.querySelector("#btnerstellen");
 
 //Formular und Fetch - Erstellen
 erstellen.addEventListener("submit", (evt) => {
@@ -39,7 +38,7 @@ button.addEventListener("click", (evt) => {
   location.href = '/';
 });
 
-// Löschen
+//Löschen
 const btnDelete = document.querySelector('#löschen');
 const verwalten = document.querySelector(".rezeptverwalten");
 const txtAuswahl = document.querySelector('#auswahl');
@@ -72,7 +71,7 @@ btnDelete.addEventListener("click", (evt) => {
 
 })
 
-// Rezept suchen
+//Rezept suchen
 const btnSearch = document.querySelector('#suchen');
 const txtTitle = document.querySelector('#txtTitle');
 const txtText = document.querySelector('#txtText');
@@ -111,8 +110,7 @@ btnSearch.addEventListener("click", (evt) => {
     });
 });
 
-// Rezept bearbeiten
-
+//Rezept bearbeiten
 const update = document.querySelector(".abschicken");
 const btnAlter = document.querySelector('#bearbeiten');
 
