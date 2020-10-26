@@ -1,5 +1,5 @@
 header{
-  background-image: url("Unbenanntes_Projekt.png");
+  background-image: url("kochprofis_header.png");
   background-color: white;
   height: 300px;
   background-position: center top;
@@ -52,6 +52,7 @@ color: white;
 font-family: "Arial", Arial, Helvetica, sans-serif;
 background: transparent;
 border: none;
+text-decoration: none;
 }
 
 .spalteFeatures:hover{
