@@ -1,5 +1,5 @@
 header{
-  background-image: url("Unbenanntes_Projekt.png");
+  background-image: url("kochprofis_header.png");
   background-color: white;
   height: 300px;
   background-position: center top;
@@ -52,6 +52,7 @@ color: white;
 font-family: "Arial", Arial, Helvetica, sans-serif;
 background: transparent;
 border: none;
+text-decoration: none;
 }
 
 .spalteFeatures:hover{
@@ -104,7 +105,6 @@ border-color: 	#619d36;
 }
 
 #btnerstellen {
-  
   width: 100%;
   border:  1px solid black;
   margin:  5px;
@@ -117,7 +117,7 @@ border-color: 	#619d36;
   text-decoration: none;
   align-items: center;
   display: flex;
-flex-direction: column;
+  flex-direction: column;
 }
 
 #btnerstellen:hover{
@@ -130,10 +130,11 @@ textarea {
 	width: 60em;
 	height: 15em;
 	border: 1px solid black;
-  font-family: Tahoma, sans-serif;
+  font-family: "Arial", Arial, Helvetica, sans-serif;
+  font-size: 18px;
   resize:none;
-  
 }
+
 #table {
   width: 100%; 
   height: auto;
@@ -151,30 +152,29 @@ th {
   font-size: 18px;
   font-family: "Arial", Arial, Helvetica, sans-serif;
 }
+
 td{
   border-bottom: 1px solid black;
   border-left: 1px solid black;
 }
 
 .anzeige {
-  margin-left: 35%;
+  margin-left: 39.5%;
   width: auto;
   font-size: 18px;
   font-family: "Arial", Arial, Helvetica, sans-serif;
 }
 
 .rezeptanzeigen{
-  
-    display: flex;
+  display: flex;
   align-items: center;
-  flex-direction: column;
-    
+  flex-direction: column;   
 }
 
 ::placeholder{
   text-align: center;
 }
-#auswahl{
 
+#auswahl{
   font-family: "Arial", Arial, Helvetica, sans-serif;
 }

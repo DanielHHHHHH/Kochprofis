@@ -27,7 +27,6 @@ erstellen.addEventListener("submit", (evt) => {
       alert("Erstellen fehlgeschlagen - Bitte alle Felder ausfüllen");
     }
   });
-
   console.log("FORM SUBMITTED", values);
 });
 
@@ -73,19 +72,15 @@ btnDelete.addEventListener("click", (evt) => {
 
 })
 
-//Const-Selectoren - Laden
-const laden = document.querySelector(".tabelle");
-
-
 // Rezept suchen
 const btnSearch = document.querySelector('#suchen');
 const txtTitle = document.querySelector('#txtTitle');
 const txtText = document.querySelector('#txtText');
 const txtAutor = document.querySelector('#txtAutor');
 
-
 btnSearch.addEventListener("click", (evt) => {
   let wanted = txtAuswahl.value;
+
   fetch("/search")
     .then((res) => {
       return res.json();
@@ -93,26 +88,27 @@ btnSearch.addEventListener("click", (evt) => {
     .then((search) => {
       let gefunden = false;
       search.forEach((rezept) => {
+
         if (rezept.id == wanted) {
           gefunden = true;
           txtTitle.value = rezept.name;
           txtAutor.value = rezept.autor;
           txtText.value = rezept.rezepttext;
-        } else {
+        } 
+        else {
           console.log("Rezept " + rezept.id + " ist nicht das Gesuchte!")
         }
       });
+
       if (!gefunden) {
         alert("keine valide ID - Suche fehlgeschlagen")
         txtAuswahl.value = "";
         txtAuswahl.focus();
       }
-
     })
     .catch((e) => {
       alert(`WHOOPS: ${e}`);
     });
-
 });
 
 // Rezept bearbeiten
@@ -130,8 +126,6 @@ btnAlter.addEventListener("click", (evt) => {
   valuesFin = merge_options(values, valueId);
   console.log(valuesFin);
 
-
-
   fetch("/update", {
     method: "POST",
     body: JSON.stringify(valuesFin),
@@ -140,27 +134,26 @@ btnAlter.addEventListener("click", (evt) => {
     },
   })
     .then((res) => {
+
       if (res.ok) {
         txtAuswahl.value = "";
         txtAutor.value = "";
         txtText.value = "";
         txtTitle.value = "";
         alert("Rezept wurde geändert");
-      }else{
+      }
+      else{
         alert("keine valide ID - Bearbeiten fehlgeschlagen")
       }
-
     })
     .catch((e) => {
       alert(`WHOOPS: ${e}`);
     })
-
   console.log("FORM SUBMITTED", valuesFin);
 });
 
 //Rezepte in Tabelle anzeigen
 const btnalle  = document.querySelector('#aktualisieren');
-
 
 btnalle.addEventListener("click", (evt) => {
     evt.preventDefault();
@@ -174,10 +167,9 @@ btnalle.addEventListener("click", (evt) => {
       
     }).then((res) => {
       console.log(res.ok);
-      location.href = '/Forum-Seite.html';
+      location.href = '/Forum-Seite.html'; //Seite neu laden
       
     });
-
     console.log("FORM SUBMITTED");
 });
 
