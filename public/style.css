@@ -47,7 +47,7 @@ width: auto;
 height: auto;
 display: inline-block;
 text-align:center;
-font-size: 16px;
+font-size: 18px;
 color: white;
 font-family: "Arial", Arial, Helvetica, sans-serif;
 background: transparent;
@@ -67,7 +67,6 @@ border-color: 	#619d36;
 .container {
   width: auto; 
   height: auto;
-  /*background-color: #d3d3d3;*/
 }
 
 .spalteA  {
@@ -110,7 +109,6 @@ border-color: 	#619d36;
   border:  1px solid black;
   margin:  5px;
   padding: 5px;
- /*display: inline-block;*/
   text-align: center;
   background-color: black;
   color: white;
@@ -132,12 +130,9 @@ textarea {
 	width: 60em;
 	height: 15em;
 	border: 1px solid black;
-	/*padding: 0.5em;*/
   font-family: Tahoma, sans-serif;
- /* margin-left: 20%;
-  margin-right: 20%;*/
   resize:none;
-  cursor: pointer;
+  
 }
 #table {
   width: 100%; 
@@ -178,4 +173,8 @@ td{
 
 ::placeholder{
   text-align: center;
+}
+#auswahl{
+
+  font-family: "Arial", Arial, Helvetica, sans-serif;
 }

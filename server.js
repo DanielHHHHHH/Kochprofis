@@ -5,7 +5,6 @@ const mysql = require("mysql");
 const session = require("express-session");
 const bodyParser = require('body-parser');
 const fs = require('fs');
-//const alert = require('alert');
 const app = express();
 
 var urlencodedParser = bodyParser.urlencoded({ extended: false })
@@ -75,10 +74,6 @@ app.post('/register', urlencodedParser, (req, res) => {
 });
 
 
-//-------------------------------------------------------------------------------------------------------
-//Umsetzung für Forum-Seite.html
-//Anleitung von Github
-
 //Rezept hinzufügen
 app.post('/erstellen', urlencodedParser, (req, res) => {
 
@@ -102,29 +97,6 @@ app.post('/erstellen', urlencodedParser, (req, res) => {
     res.status(400).send();
   }
 });
-
-/*
-//Rezepte in Tabelle ausgeben
-app.get("/laden", function(req, res) {
-  
-  const [rows] = connection.query("SELECT id, autor, rezeptname FROM rezepte", (err, res) => 
-  {
-    if (err) throw err;
-    console.log("Daten angezeigt");
-    console.log(res);
-  });
-  
-  res.json[rows];
-});
-
-  if (req.query.auswahl) {
-    const [rows] = await connection.execute("SELECT * FROM rezepte", [req.query.auswahl]);
-  }
-  else {
-    const [rows] = await connection.execute("SELECT * FROM rezepte");
-  }
-});
-*/
 
 
 //Rezept löschen
@@ -161,15 +133,6 @@ app.get('/search', async (req, res) => {
 
 });
 
-//Rezept laden für Tabelle, nur bestimmte Spalten anzeigen
-/*app.get('/search2', async (req, res) => {
-
-  const [rows] = connection.query('SELECT rezeptname, rezept, autor FROM rezepte', (err, rows, fields) => {
-    console.log(rows);
-    res.json(rows);
-  });
-
-});*/
 
 //Rezept updaten
 
@@ -221,15 +184,3 @@ app.post('/uebersicht', urlencodedParser, (req, res) => {
   });
 
 });
-
-
-/*
-//Alle Rezepte bekommen
-app.get('/rezepte', async (req, res) => {
-  const [rows] = await connection.execute('SELECT rezept FROM rezepte', (err, rows, fields) => {
-    if (!err)
-      res.send(rows);
-    else
-      console.log(err);
-  })
-});*/
