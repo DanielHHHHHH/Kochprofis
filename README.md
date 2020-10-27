@@ -87,3 +87,7 @@ Um sich aus zu loggen gibt es auf der "Forum-Seite.html" einen Button dafür. In
 Eine weitere Funktion der "Forum-Seite.html" ist es, einen Eintrag zu löschen. Drückt man den "Löschen-Button", wird ein Event-Listener aktiviert, der den Fetch "delete" enthält. Dann wird in der "server.js" der richtige REST-Service ausgeführt. Die ausgwählten Daten werden aus der Datenbank gelöscht. Daraufhin erfolgt ein Hinweis, der eine erfolgreiche oder fehlerhafte Durchführung kennzeichnet.
 
 Um einen Rezepttext anzuzeigen, muss die ID in das Feld "Rezept Id Auswählen" geschrieben werden und auf den "Rezept Suchen" Button geklickt werden. Mit dem Klick auf den Button wird ein Event-Listener aktiviert, der einen fetch-request beinhaltet. Dadurch werden die zum Eintrag gehörenden Daten aus der Datenbank in das Textfeld "Rezepttext" geladen. Die Bestätigung, ob die Aktion erfolgreich war, erfolgt durch einen alert.
+
+Damit ein Rezept auch bearbeitet werden kann gibt es zu dem noch einen "Rezept bearbeiten" Button. Wird dieser geklickt aktiviert sich ein Event-Listener welcher den Fetch request "update" enthält, durch diesen werden die Inhalte des jeweiligen Rezeptes aktualiesiert und in der Datenbank geändert. Durch einen alert wird außerdem noch  gekennzeichnet ob die Änderung funktioniert hat.
+
+Die angelegten Rezepte sollen auf der Forum-Seite mit ihrer ID, ihrem Titel und dem jeweiligen Autor angezeigt werden. Dies erfolg durch den Fetch "Übersicht", welcher die Daten aus der Datenbank in einer Tabelle ausgibt.
