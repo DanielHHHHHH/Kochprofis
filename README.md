@@ -11,10 +11,11 @@ Kochprofis ist eine Website, die es Ihnen ermöglicht Ihre Lieblingsrezepte fest
 ## Quickstart
 
 1. git clone https://github.com/DanielHHHHHH/Kochprofis.git
-2. "database.sql" in die Datenbank importieren, bestenfalls in phpmyadmin
-3. npm install
-4. npm start
-5. http://localhost:2222
+2. MySQL über xampp starten
+3. "database.sql" in die Datenbank importieren, bestenfalls in phpmyadmin
+4. npm install
+5. npm start
+6. http://localhost:2222
 
 ## Anleitung für Benutzer
 
