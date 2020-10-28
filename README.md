@@ -30,6 +30,8 @@ Der Button "Rezept bearbeiten" ermöglicht es Ihnen, die Daten eines bestehenden
 
 Haben Sie ein passendes Rezept gefunden, können Sie sich über den Button "Ausloggen" von der Website abmelden. Sie gelangen daraufhin auf die Anmeldeseite.
 
+Zur Veranschaulichung wird von Tom Kürbis sein Lieblingsrezept mitgeliefert. Dieses kann schon bei Erstanmeldung eingesehen werden.
+
 ## Architektur
 
 Es folgt eine Beschreibung alle eingesetzten Technologien sowie der Architektur:
