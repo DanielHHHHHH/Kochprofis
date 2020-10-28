@@ -26,7 +26,7 @@ Auf der Forumsseite angekommen werden Ihnen nun alle gespeicherten Rezepte in Fo
 Mithilfe des Buttons "Rezept erstellen" können Sie ein eigenes Rezept erstellen, selbstverständlich erst wenn alle dafür vorgesehenen Textfelder gefüllt worden sind.
 Nach dem Erstellen eines Rezeptes muss der "Aktualisieren" Button geklickt werden, um den aktuellen Stand der Tabelle aller Rezepte anzuzeigen.
 Durch den "Button Löschen" können Sie ein bestehendes Rezept löschen, nachdem Sie es durch die Suche selektiert haben.
-Der Button "Rezept bearbeiten" ermöglcht es Ihnen, die Daten eines bestehenden Rezepts zu ändern. Hierzu einfach die Daten in den Textfeldern bearbeiten und den bearbeiten Button klicken.
+Der Button "Rezept bearbeiten" ermöglicht es Ihnen, die Daten eines bestehenden Rezepts zu ändern. Hierzu einfach die Daten in den Textfeldern bearbeiten und den bearbeiten Button klicken.
 
 Haben Sie ein passendes Rezept gefunden, können Sie sich über den Button "Ausloggen" von der Website abmelden. Sie gelangen daraufhin auf die Anmeldeseite.
 
