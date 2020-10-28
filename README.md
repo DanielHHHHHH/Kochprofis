@@ -11,7 +11,7 @@ Kochprofis ist eine Website, die es Ihnen ermöglicht Ihre Lieblingsrezepte fest
 ## Quickstart
 
 1. git clone https://github.com/DanielHHHHHH/Kochprofis.git
-2. DB mit der "database.sql" einladen, bestenfalls in phpmyadmin
+2. "database.sql" in die Datenbank importieren, bestenfalls in phpmyadmin
 3. npm install
 4. npm start
 5. http://localhost:2222
@@ -23,7 +23,7 @@ Nachdem man sich registriert hat, gelangt man sofort auf die Forumseite.
 Beim nächsten Mal reicht dann die normale Anmeldung aus.
 
 Auf der Forumsseite angekommen werden Ihnen nun alle gespeicherten Rezepte in Form einer Liste angezeigt.
-Mithilfe des Buttons "Rezept erstellen" können Sie ein eigenes Rezept erstellen, selbstverständlich erst wenn alle dafür Textfelder gefüllt worden sind.
+Mithilfe des Buttons "Rezept erstellen" können Sie ein eigenes Rezept erstellen, selbstverständlich erst wenn alle dafür vorgesehenen Textfelder gefüllt worden sind.
 Nach dem Erstellen eines Rezeptes muss der "Aktualisieren" Button geklickt werden, um den aktuellen Stand der Tabelle aller Rezepte anzuzeigen.
 Durch den "Button Löschen" können Sie ein bestehendes Rezept löschen, nachdem Sie es durch die Suche selektiert haben.
 Der Button "Rezept bearbeiten" ermöglcht es Ihnen, die Daten eines bestehenden Rezepts zu ändern. Hierzu einfach die Daten in den Textfeldern bearbeiten und den bearbeiten Button klicken.
