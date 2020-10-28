@@ -19,12 +19,12 @@ Kochprofis ist eine Website, die Ihnen hilft, Ihr perfektes Kochrezept zu finden
 ## Anleitung für Benutzer
 
 Um die Website zu nutzen ist es erforderlich, sich zuerst zu registrieren. Dazu muss auf der Startseite der Button "Registrieren" angeklickt werden. Man muss einen Benutzernamen und ein Passwort eingeben.
-Nachdem man sich registriert hat, kann man auf die "Anmeldeseite" zurückehren und sich mit den selbst festgelegten Daten anmelden.
+Nachdem man sich registriert hat, gelangt man sofort auf die Forumseite.
 
 Nach der erfolgreichen Anmeldung wird man automatisch auf die eigentliche Website geleitet.
 Hier werden Ihnen nun alle gespeicherten Rezepte in Form einer Liste angezeigt.
 Mithilfe des Buttons "Rezept erstellen" können Sie ein eigenes Rezept erstellen, welches dann für alle Benutzer sichtbar wird.
-Nach dem Erstellen eines Rezeptes muss der "Aktualisieren" Button geklickt werden, um den aktuellen Stand der angezeigte Tabelle anzuzeigen.
+Nach dem Erstellen eines Rezeptes muss der "Aktualisieren" Button geklickt werden, um den aktuellen Stand der Tabelle aller Rezepte anzuzeigen.
 Durch den "Button Löschen" können Sie ein bestehendes Rezept löschen.
 Der Button "Rezept bearbeiten" ermöglcht es Ihnen, die Daten eines bestehenden Rezepts zu ändern.
 
