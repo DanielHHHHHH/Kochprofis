@@ -26,7 +26,7 @@ Auf der Forumsseite angekommen werden Ihnen nun alle gespeicherten Rezepte in Fo
 Mithilfe des Buttons "Rezept erstellen" können Sie ein eigenes Rezept erstellen, selbstverständlich erst wenn alle dafür vorgesehenen Textfelder gefüllt worden sind.
 Nach dem Erstellen eines Rezeptes muss der "Aktualisieren" Button geklickt werden, um den aktuellen Stand der Tabelle aller Rezepte anzuzeigen.
 Durch den "Button Löschen" können Sie ein bestehendes Rezept löschen, nachdem Sie es durch die Suche selektiert haben.
-Der Button "Rezept bearbeiten" ermöglcht es Ihnen, die Daten eines bestehenden Rezepts zu ändern. Hierzu einfach die Daten in den Textfeldern bearbeiten und den bearbeiten Button klicken.
+Der Button "Rezept bearbeiten" ermöglicht es Ihnen, die Daten eines bestehenden Rezepts zu ändern. Hierzu einfach die Daten in den Textfeldern bearbeiten und den bearbeiten Button klicken.
 
 Haben Sie ein passendes Rezept gefunden, können Sie sich über den Button "Ausloggen" von der Website abmelden. Sie gelangen daraufhin auf die Anmeldeseite.
 
@@ -45,10 +45,10 @@ Das ist eine Beispiel JSON für alle verwendeten Datenmodelle:
 **REST Services**
 
 In der server.js werden alle REST-Service durchgeführt.
-Mit dem "connection.connect" wird eine Verbindung zur Datenbank aufgebaut. Dabei wird eine Fehlermeldung ausgegeben, wenn die Verbindung nicht funktioniert hat und einen Eintrag in der Konsoloe, wenn die Verbinung erfolgreich war.
+Mit dem "connection.connect" wird eine Verbindung zur Datenbank aufgebaut. Dabei wird eine Fehlermeldung ausgegeben, wenn die Verbindung nicht funktioniert hat und einen Eintrag in der Konsole, wenn die Verbindung erfolgreich war.
 
 Mit der REST-Funktion "post" werden die Daten auf der Webseite mit den Daten aus der Datenbank abgeglichen. 
-Dies wird beim einloggen und dem Registrieren neuer Benutzer verwendet. 
+Dies wird beim Einloggen und dem Registrieren neuer Benutzer verwendet. 
 Zudem hat es die Funktion eingegebene Daten auf der Website, in die Tabellen von der Datenbank einzufügen. 
 Somit kann man auf unserer Seite sich als neuen Benutzer anlegen und neue Rezepte in die Datenbank hinzufügen.
 
@@ -74,15 +74,15 @@ Darunter ist eine Tabelle, die alle gespeicherten Rezepte des Forums anzeigen. E
 
 Unter der Tabelle sind die Eingabefelder der Funktionen "Rezept Erstellen" und "Rezept Bearbeiten". Dazu zählen zwei Textfelder, in die der Name des Autors und der Titel geschrieben werden können. Zwischen den Textfeldern befindet sich eine größere Textarea, in welcher der eigentliche Rezepttitel Platz findet. Um die Erstellung eines Rezepts abzuschließen gibt es unter dem Textfeld für den Autor einen Button "Rezept Erstellen".
 
-In der "index.html" befindet sich ein Formular, dass zwei Textfelder und zwei Buttons enthält. Im "index.js" wir dieses Formular über einen fetch angesprochen. Dieser fetch wird ausgelöst, wenn der Button "Anmelden" gedrückt wird. Dadurch wird in der "server.js" der passende REST-Service verwendet. Wenn es keine Fehler gibt, wird man auf die Forumseite weitergeleitet.
+In der "index.html" befindet sich ein Formular, dass zwei Textfelder und zwei Buttons enthält. Im "index.js" wird dieses Formular über einen fetch angesprochen. Dieser fetch wird ausgelöst, wenn der Button "Anmelden" gedrückt wird. Dadurch wird in der "server.js" der passende REST-Service verwendet. Wenn es keine Fehler gibt, wird man auf die Forumseite weitergeleitet.
 
 In der "index.js" gibt es auch noch einen Event-Listener, der mit einem Button verbunden ist. Wenn man diesen klickt, wird man auf die "register.html" weitergeleitet.
 
-Auf der "register.html" gibt es ein Formular, dass alles Textfelder und Buttons auf der Seite beinhaltet. In der "registerScript.js" gibt es dann einen fetch, der beim klicken des Button ausgelöst wird. Dann wird der richtige REST-Service in der "server.js" gesucht und ausgeführt. Danach wird man auf die "Forum-Seite.html" weitergeleitet.
+Auf der "register.html" gibt es ein Formular, dass alles Textfelder und Buttons auf der Seite beinhaltet. In der "registerScript.js" gibt es dann einen fetch, der beim Klicken des Button ausgelöst wird. Dann wird der richtige REST-Service in der "server.js" gesucht und ausgeführt. Danach wird man auf die "Forum-Seite.html" weitergeleitet.
 
-Auf der "Forum-Seite.html" gibt es ein Formular, dass die Felder zum Anzeigen eines Textes und den Button zum Erstellen eines Textes beinhaltet. Wird der Button gedrückt aktiviert sich der Event-Listener, in dem sich der Fetch befindet. Dann wird in der "server.js" der richtige REST-Service ausgeführt. Die Felder zum Eingeben von den Daten werden geleert und die Daten an die Datenbank übergeben. Es gibt jeweils einen Hinweis für eine erfolgreiche und fehlerhafte Durchführung.
+Auf der "Forum-Seite.html" gibt es ein Formular, dass die Felder zum Anzeigen eines Textes und den Button zum Erstellen eines Textes beinhaltet. Wird der Button gedrückt, aktiviert sich der Event-Listener in dem sich der Fetch befindet. Dann wird in der "server.js" der richtige REST-Service ausgeführt. Die Felder zum Eingeben von den Daten werden geleert und die Daten an die Datenbank übergeben. Es gibt jeweils einen Hinweis für eine erfolgreiche und fehlerhafte Durchführung.
 
-Um sich aus zu loggen gibt es auf der "Forum-Seite.html" einen Button dafür. In der "forumScript.js" gibt es einen passenden Event-Listener, der durch einen Klick auf den Button "Ausloggen" ausgelöst wird. Dadurch wir man auf die Loginseite geführt.
+Um sich aus zu loggen gibt es auf der "Forum-Seite.html" einen passenden Button. In der "forumScript.js" gibt es den dazugehörigen Event-Listener, der durch einen Klick auf den Button "Ausloggen" ausgelöst wird. Durch den Vorgang wird man auf die Login-Seite zurückgeführt.
 
 Eine weitere Funktion der "Forum-Seite.html" ist es, einen Eintrag zu löschen. Drückt man den "Löschen-Button", wird ein Event-Listener aktiviert, der den Fetch "delete" enthält. Dann wird in der "server.js" der richtige REST-Service ausgeführt. Die ausgwählten Daten werden aus der Datenbank gelöscht. Daraufhin erfolgt ein Hinweis, der eine erfolgreiche oder fehlerhafte Durchführung kennzeichnet.
 
